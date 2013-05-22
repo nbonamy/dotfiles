@@ -27,13 +27,13 @@ set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set encoding=utf-8 nobomb " BOM often causes trouble
 set esckeys " Allow cursor keys in insert mode.
 set expandtab " Expand tabs to spaces
-set foldcolumn=4 " Column to show folds
-set foldenable
-set foldlevel=2
-" set foldlevelstart=2 " Sets `foldlevel` when editing a new buffer
-set foldmethod=syntax " Markers are used to specify folds.
-set foldminlines=0 " Allow folding single lines
-set foldnestmax=3 " Set max fold nesting level
+"set foldcolumn=4 " Column to show folds
+"set foldenable
+"set foldlevel=2
+"set foldlevelstart=2 " Sets `foldlevel` when editing a new buffer
+"set foldmethod=syntax " Markers are used to specify folds.
+"set foldminlines=0 " Allow folding single lines
+"set foldnestmax=3 " Set max fold nesting level
 set formatoptions=
 set formatoptions+=c " Format comments
 set formatoptions+=r " Continue comments by default
@@ -218,8 +218,8 @@ autocmd BufReadPost *
   \ endif
 
 " Set relative line numbers
-set relativenumber " Use relative line numbers. Current line is still in status bar.
-au BufReadPost,BufNewFile * set relativenumber
+"set relativenumber " Use relative line numbers. Current line is still in status bar.
+"au BufReadPost,BufNewFile * set relativenumber
 
 " Emulate bundles, allow plugins to live independantly. Easier to manage.
 call pathogen#runtime_append_all_bundles()
