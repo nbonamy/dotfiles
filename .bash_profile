@@ -24,3 +24,15 @@ export LANG="en_US"
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults
+
+##
+# Your previous /Volumes/Data/.bash_profile file was backed up as /Volumes/Data/.bash_profile.macports-saved_2013-09-16_at_21:18:22
+##
+
+# MacPorts Installer addition on 2013-09-16_at_21:18:22: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+# node.js
+export NODE_PATH="/usr/local/lib/node_modules"
+

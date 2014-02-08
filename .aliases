@@ -113,7 +113,7 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Some hosts
-alias eve="ssh eve.local"
+alias eve="ssh pi@eve"
 
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 alias plistbuddy="/usr/libexec/PlistBuddy"
@@ -127,3 +127,15 @@ done
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 10'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
+
+# iPhone Simulator
+alias simulator="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
+
+# Android stuff
+alias adb="~/Sources/android-sdk-macosx/platform-tools/adb"
+
+# Custom apache/PHP
+alias php='/opt/local/bin/php'
+alias apache2ctl='sudo /opt/local/apache2/bin/apachectl'
+alias php53='phpsw php53'
+alias php54='phpsw php54'
