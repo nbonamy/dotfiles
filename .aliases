@@ -134,8 +134,11 @@ alias simulator="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhon
 # Android stuff
 alias adb="~/Sources/android-sdk-macosx/platform-tools/adb"
 
+# Sudo vi
+alias svi="sudo vi -E"
+
 # Custom apache/PHP
-alias php='/opt/local/bin/php'
-alias apache2ctl='sudo /opt/local/apache2/bin/apachectl'
-alias php53='phpsw php53'
-alias php54='phpsw php54'
+#alias php='/opt/local/bin/php'
+#alias apache2ctl='sudo /opt/local/apache2/bin/apachectl'
+#alias php53='phpsw php53'
+#alias php54='phpsw php54'
