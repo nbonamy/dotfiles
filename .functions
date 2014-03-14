@@ -3,16 +3,6 @@ function md() {
 	mkdir -p "$@" && cd "$@"
 }
 
-# switch php version
-function phpsw() {
-	apache2ctl stop
-	sudo port select php $1
-	sudo rm -f /opt/local/etc/php5
-	sudo ln -sf /opt/local/etc/$1 /opt/local/etc/php5
-	sudo ln -sf /opt/local/apache2/modules/mod_$1.so /opt/local/apache2/modules/mod_php5.so
-	apache2ctl start
-}
-
 # find shorthand
 function f() {
     find . -name "$1"
