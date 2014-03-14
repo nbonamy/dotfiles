@@ -177,7 +177,7 @@ map <Leader>ls :buffers<CR>
 map <leader>qq :cclose<CR>
 
 " Yank from cursor to end of line
-nnoremap Y y$
+" nnoremap Y y$
 
 " Insert newline
 map <leader><Enter> o<ESC>
