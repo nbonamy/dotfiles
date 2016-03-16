@@ -13,6 +13,9 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias src="cd ~/Sources"
 
+# history
+alias h="history"
+
 # programs
 # alias slt='open -a "Sublime Text 2"'
 # also/or do this:
