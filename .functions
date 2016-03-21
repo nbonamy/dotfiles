@@ -69,7 +69,7 @@ function restart() {
     if [ "$?" == 0 ]; then
       sudo /etc/init.d/nginx reload
     else
-      echo "Error in configuration file. Not restarting nginx"
+      echo "[ ko ] error in configuration file. Not restarting nginx"
     fi
   elif [ "$1" == "php" ]; then
     if [ -d /etc/php/7.0 ]; then
