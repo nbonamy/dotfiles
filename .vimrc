@@ -1,3 +1,4 @@
+
 " Make vim more useful
 set nocompatible
 
@@ -55,7 +56,7 @@ set lispwords+=defpartial,defpage " Noir core
 set lispwords+=defaction,deffilter,defview,defsection " Ciste core
 set lispwords+=describe,it " Speclj TDD/BDD
 set magic " Enable extended regexes.
-set mouse=a " Enable moouse in all in all modes.
+"set mouse=a " Enable moouse in all in all modes.
 set noerrorbells " Disable error bells.
 set nojoinspaces " Only insert single space after a '.', '?' and '!' with a join command.
 set nostartofline " Don't reset cursor to start of line when moving around.
@@ -80,7 +81,7 @@ set title " Show the filename in the window titlebar.
 set ts=2 " Tab stop length
 set ttyfast " Send more characters at a given time.
 set ttymouse=xterm " Set mouse type to xterm.
-set undofile " Persistent Undo.
+"set undofile " Persistent Undo.
 set visualbell " Use visual bell instead of audible bell (annnnnoying)
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
