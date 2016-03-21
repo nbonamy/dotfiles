@@ -69,8 +69,8 @@ function restart() {
     if [ "$?" == 0 ]; then
       sudo /etc/init.d/nginx reload
     else
-      RED='\033[0;31m'
-      NC='\033[0m' # No Color
+      RED=$(tput setaf 9)
+      NC=$(tput sgr0)
       echo "[ ${RED}ko${NC} ] error in configuration file. Not restarting nginx"
     fi
   elif [ "$1" == "php" ]; then
