@@ -47,7 +47,7 @@ function conf() {
       cd /etc/nginx/sites-enabled/
     fi
   elif [ "$1" == "php" ]; then
-    if [ -d /etc/php.7.0 ]; then
+    if [ -d /etc/php/7.0 ]; then
       sudo vi /etc/php/7.0/fpm/pool.d/www.conf
     else
       sudo vi /etc/php5/fpm/pool.d/www.conf
