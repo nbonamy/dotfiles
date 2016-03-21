@@ -32,3 +32,33 @@ function extract() {
 	fi
 }
 
+function connect() {
+  ssh -p 2204 nico@$1
+}
+
+function conf() {
+
+  if [ "$1" == "nginx" ]; then
+    if [ -f /etc/nginx/sites-enabled/scorecast-proxy.nginx.conf ]; then
+      sudo vi /etc/nginx/sites-enabled/scorecast-proxy.nginx.conf
+    elif [ -f /etc/nginx/sites-enabled/scorecast.nginx.conf ]; then
+      sudo vi /etc/nginx/sites-enabled/scorecast.nginx.conf
+    else
+      cd /etc/nginx/sites-enabled/
+    fi
+  elif [ "$1" == "php" ]; then
+    if [ -d /etc/php.7.0 ]; then
+      sudo vi /etc/php/7.0/fpm/pool.d/www.conf
+    else
+      sudo vi /etc/php5/fpm/pool.d/www.conf
+    fi
+  elif [ "$1" == "mysql" ]; then
+    sudo vi /etc/mysql/my.cnf
+  elif [ "$1" == "redis" ]; then
+    sudo vi /etc/redis/redis.conf
+  else
+    echo "Usage: $FUNCNAME [nginx|php|mysql|redis]"
+  fi
+
+
+}
