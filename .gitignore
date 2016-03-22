@@ -14,5 +14,7 @@ Thumbs.db
 .Trashes
 
 # vim stuff
+.vim/backups
+.vim/swaps
 .vim/undo
 .vim/.netrwhist

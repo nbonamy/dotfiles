@@ -16,5 +16,12 @@ export HISTTIMEFORMAT
 # Make some commands not show up in history
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
-# Path
-export PATH="$(brew --prefix)/bin:$(brew --prefix php56)/bin:~/bin:/usr/local/sbin:$PATH:/Users/nbonamy/Sources/android-sdk-macosx/platform-tools:/Applications/Parallels Desktop.app/Contents/MacOS"
+# Mac OS X specific
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  export PATH="$(brew --prefix)/bin:$(brew --prefix php56)/bin:~/bin:/usr/local/sbin:$PATH:/Users/nbonamy/Sources/android-sdk-macosx/platform-tools:/Applications/Parallels Desktop.app/Contents/MacOS"
+fi
+
+# Cygwin specific
+if [[ "$OSTYPE" =~ ^cygwin ]]; then
+  export PATH=$PATH:$HOME/dev/web/st3:$HOME/dev/web/php70:$HOME/dev/web/mysql/bin
+fi
