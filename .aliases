@@ -25,7 +25,7 @@ fi
 
 # List all files colorized in long format
 alias ll="ls -l ${colorflag}"
-alias la="ll -a"
+alias la="LC_ALL=C ll -A"
 
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
