@@ -1,17 +1,19 @@
+#!/bin/bash
+
 # Create a new directory and enter it
 function md() {
 	mkdir -p "$@" && cd "$@"
 }
 
-# switch php version
-function phpsw() {
-	apache2ctl stop
-	sudo port select php $1
-	sudo rm -f /opt/local/etc/php5
-	sudo ln -sf /opt/local/etc/$1 /opt/local/etc/php5
-	sudo ln -sf /opt/local/apache2/modules/mod_$1.so /opt/local/apache2/modules/mod_php5.so
-	apache2ctl start
-}
+# switch php version with MacPorts
+#function phpsw() {
+#	apache2ctl stop
+#	sudo port select php $1
+#	sudo rm -f /opt/local/etc/php5
+#	sudo ln -sf /opt/local/etc/$1 /opt/local/etc/php5
+#	sudo ln -sf /opt/local/apache2/modules/mod_$1.so /opt/local/apache2/modules/mod_php5.so
+#	apache2ctl start
+#}
 
 # find shorthand
 function f() {
@@ -151,3 +153,27 @@ gifify() {
   fi
 }
 
+# start/stop nginx
+nginx() {
+  if [[ -n "$1" ]]; then
+    phpver="`php -r \"echo str_replace('.', '', substr(phpversion(), 0, 3));\"`"
+    if [[ $1 == 'restart' ]]; then
+      nginx stop
+      nginx start
+    elif [[ $1 == 'start' ]]; then
+			brew services start redis
+    	brew services start php${phpver}
+    	sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.mysql56.plist
+    	sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+    else
+      sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.mysql56.plist
+      sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+      brew services stop php${phpver}
+			brew services stop redis
+    fi
+  else
+    echo "usage: nginx <start|stop|restart>"
+  fi
+}
+
+#

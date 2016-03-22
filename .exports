@@ -17,4 +17,4 @@ export HISTTIMEFORMAT
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # Path
-export PATH=/usr/local/bin:$PATH:~/bin
+export PATH="$(brew --prefix)/bin:$(brew --prefix php56)/bin:~/bin:/usr/local/sbin:$PATH:/Users/nbonamy/Sources/android-sdk-macosx/platform-tools:/Applications/Parallels Desktop.app/Contents/MacOS"

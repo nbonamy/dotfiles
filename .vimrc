@@ -19,14 +19,14 @@ set directory=~/.vim/swaps
 set undodir=~/.vim/undo
 
 " Set some junk
-set autoindent " Copy indent from last line when starting new line.
+"set autoindent " Copy indent from last line when starting new line.
 set backspace=indent,eol,start
 set cursorline " Highlight current line
 set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set encoding=utf-8 nobomb " BOM often causes trouble
 set esckeys " Allow cursor keys in insert mode.
-set expandtab " Expand tabs to spaces
+"set expandtab " Expand tabs to spaces
 "set foldcolumn=4 " Column to show folds
 "set foldenable
 "set foldlevel=2
@@ -77,6 +77,7 @@ set splitbelow " New window goes below
 set splitright " New windows goes right
 set suffixes=.bak,~,.swp,.swo,.o,.d,.info,.aux,.log,.dvi,.pdf,.bin,.bbl,.blg,.brf,.cb,.dmg,.exe,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyd,.dll
 set title " Show the filename in the window titlebar.
+set ts=2
 set ttyfast " Send more characters at a given time.
 set ttymouse=xterm " Set mouse type to xterm.
 set undofile " Persistent Undo.
@@ -177,7 +178,7 @@ map <Leader>ls :buffers<CR>
 map <leader>qq :cclose<CR>
 
 " Yank from cursor to end of line
-nnoremap Y y$
+"nnoremap Y y$
 
 " Insert newline
 map <leader><Enter> o<ESC>

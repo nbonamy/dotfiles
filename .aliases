@@ -7,6 +7,9 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
+# History
+alias h="history"
+
 # Shortcuts
 alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
@@ -40,7 +43,6 @@ alias l="ls -l ${colorflag}"
 alias ll="ls -l ${colorflag}"
 alias la="ll -a"
 
-
 # List only directories
 alias lsd='ls -l | grep "^d"'
 
@@ -59,10 +61,10 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 # GIT STUFF
 
 # Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
+#alias undopush="git push -f origin HEAD^:master"
 
 # git root
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+#alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -98,6 +100,7 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias g="git"
 alias v="vim"
 alias x="exit"
+alias h="history"
 
 # File size
 alias fs="stat -f \"%z bytes\""
@@ -113,7 +116,14 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Some hosts
-alias eve="ssh pi@eve"
+alias eve="ssh nico@eve"
+alias ovh="ssh nabocorp@ftp.nabocorp.com"
+alias saigon="ssh nico@saigon -p 2204"
+alias cantho="ssh nico@cantho -p 2204"
+alias hanoi="ssh nico@hanoi -p 2204"
+alias danang="ssh nico@danang -p 2204"
+alias hue="ssh nico@hue -p 2204"
+alias demo="ssh nico@demo -p 2204"
 
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 alias plistbuddy="/usr/libexec/PlistBuddy"
@@ -135,7 +145,8 @@ alias simulator="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhon
 alias adb="~/Sources/android-sdk-macosx/platform-tools/adb"
 
 # Custom apache/PHP
-alias php='/opt/local/bin/php'
-alias apache2ctl='sudo /opt/local/apache2/bin/apachectl'
-alias php53='phpsw php53'
-alias php54='phpsw php54'
+#alias php='/opt/local/bin/php'
+#alias apache2ctl='sudo /opt/local/apache2/bin/apachectl'
+#alias php55='brew unlink php55 > /dev/null; brew unlink php56 > /dev/null; brew link php55 > /dev/null; nginx restart; echo "PHP 5.5 Enabled";'
+#alias php56='brew unlink php55 > /dev/null; brew unlink php56 > /dev/null; brew link php56 > /dev/null; nginx restart; echo "PHP 5.6 Enabled";'
+alias sphp='~/Sources/sphp-osx/sphp'
