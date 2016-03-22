@@ -18,7 +18,7 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # Mac OS X specific
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-  export PATH="$(brew --prefix)/bin:$(brew --prefix php56)/bin:~/bin:/usr/local/sbin:$PATH:/Users/nbonamy/Sources/android-sdk-macosx/platform-tools:/Applications/Parallels Desktop.app/Contents/MacOS"
+  export PATH="$(brew --prefix)/bin:$(brew --prefix php70)/bin:~/bin:/usr/local/sbin:$PATH:/Users/nbonamy/Sources/android-sdk-macosx/platform-tools:/Applications/Parallels Desktop.app/Contents/MacOS"
 fi
 
 # Cygwin specific
