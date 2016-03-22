@@ -5,7 +5,7 @@ alias -- -="cd -"
 
 # command shortcuts
 alias x="exit"
-alias h="history"
+alias h="history 100"
 
 # edit hosts
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
