@@ -30,7 +30,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     . `brew --prefix`/etc/bash_completion
   fi
 
-fi
+  # Docker
+  eval "$(docker-machine env default)"
 
-# Docker
-eval "$(docker-machine env default)"
+fi
