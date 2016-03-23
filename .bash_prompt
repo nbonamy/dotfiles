@@ -1,54 +1,110 @@
+#!/bin/bash
 # @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
 # Shamelessly copied from https://github.com/gf3/dotfiles
 
-default_username='paulirish'
+default_username1=
+default_username2=
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-	export TERM=gnome-256color
+  export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
-	export TERM=xterm-256color
+  export TERM=xterm-256color
 fi
 
 if tput setaf 1 &> /dev/null; then
-	tput sgr0
-	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
-		MAGENTA=$(tput setaf 9)
-		ORANGE=$(tput setaf 172)
-		GREEN=$(tput setaf 190)
-		PURPLE=$(tput setaf 141)
-		WHITE=$(tput setaf 256)
-	else
-		MAGENTA=$(tput setaf 5)
-		ORANGE=$(tput setaf 4)
-		GREEN=$(tput setaf 2)
-		PURPLE=$(tput setaf 1)
-		WHITE=$(tput setaf 7)
-	fi
-	BOLD=$(tput bold)
-	RESET=$(tput sgr0)
+  tput sgr0
+  if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
+    MAGENTA=$(tput setaf 9)
+    ORANGE=$(tput setaf 172)
+    GREEN=$(tput setaf 190)
+    PURPLE=$(tput setaf 141)
+    WHITE=$(tput setaf 255)
+  else
+    MAGENTA=$(tput setaf 5)
+    ORANGE=$(tput setaf 4)
+    GREEN=$(tput setaf 2)
+    PURPLE=$(tput setaf 1)
+    WHITE=$(tput setaf 7)
+  fi
+  BOLD=$(tput bold)
+  RESET=$(tput sgr0)
 else
-	MAGENTA="\033[1;31m"
-	ORANGE="\033[1;33m"
-	GREEN="\033[1;32m"
-	PURPLE="\033[1;35m"
-	WHITE="\033[1;37m"
-	BOLD=""
-	RESET="\033[m"
+  MAGENTA="\033[1;31m"
+  ORANGE="\033[1;33m"
+  GREEN="\033[1;32m"
+  PURPLE="\033[1;35m"
+  WHITE="\033[1;37m"
+  BOLD=""
+  RESET="\033[m"
 fi
 
 # Fastest possible way to check if repo is dirty. a savior for the WebKit repo.
-function parse_git_dirty() {
+function __git_dirty() {
    git diff --quiet --ignore-submodules HEAD 2>/dev/null; [ $? -eq 1 ] && echo '*'
 }
 
-function parse_git_branch() {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+function __git_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(__git_dirty)/"
 }
 
 # Only show username/host if not default
 function usernamehost() {
-	if [ $USER != $default_username ]; then echo "${MAGENTA}$USER ${WHITE}at ${ORANGE}$HOSTNAME $WHITEin "; fi
+  if [[ $USER != $default_username1 && $USER != $default_username2 ]]; then
+    echo "${MAGENTA}$USER ${WHITE}at ${ORANGE}$HOSTNAME ${WHITE}in ";
+  fi
 }
+
+# Git/Subversion prompt function
+__git_svn_ps1() {
+  local s=
+  local svn_info=`svn info 2>/dev/null`
+  local svn_root=`echo "$svn_info" | awk '/Working Copy Root Path:/ {print $5}'`
+  if [[ ! -z "$svn_root" ]] ; then
+    #local r=`__svn_rev "$svn_info"`
+    local b=`__svn_branch "$svn_info"`
+    local f=`__svn_mod_flag $svn_root`
+    [ ! -z "$f" ] && color=${MAGENTA}
+    #s="$color[$b:$r]"
+    s="$color[$b$f]"
+  elif [[ -d .git ]] ; then
+    s=`__git_branch`
+  fi
+  echo -n "$s"
+}
+
+# Outputs the current trunk, branch, or tag
+__svn_branch() {
+  local url=
+  url=`echo "$1" | awk '/URL:/ {print $2}'`
+  if [[ $url =~ trunk ]]; then
+    echo trunk
+  elif [[ $url =~ /branches/ ]]; then
+    echo $url | sed -e 's#^.*/\(branches/.*\)/.*$#\1#'
+  elif [[ $url =~ /tags/ ]]; then
+    echo $url | sed -e 's#^.*/\(tags/.*\)/.*$#\1#'
+  fi
+}
+
+# Returns if svn wc is modified
+__svn_is_modified() {
+  local svnst=$(svn status $1 | grep '^\s*[?ACDMR?!]')
+  [ -z "$svnst" ]
+  echo $?
+}
+
+__svn_mod_flag() {
+  local ismod=`__svn_is_modified $1`
+  [ "$ismod" != "0" ] && echo "*"
+}
+
+# Outputs the current revision
+__svn_rev() {
+  local r=$(echo "$1" | awk '/Revision:/ {print $2}')
+  local f=`__svn_mod_flag $1`
+  echo $r$f
+}
+
+#PS1='\u@\h:\W\[\033[01;33m\]$(__git_svn_ps1)\[\033[00m\]$ '
 
 # iTerm Tab and Title Customization and prompt customization
 # http://sage.ucsc.edu/xtal/iterm_tab_customization.html
@@ -61,4 +117,5 @@ function usernamehost() {
 # in the iterm tab
 # \[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]
 
-PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+#PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+PS1="\n${BOLD}\$(usernamehost)\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(__git_svn_ps1 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(__git_svn_ps1)\[$WHITE\]\n\$ \[$RESET\]"
