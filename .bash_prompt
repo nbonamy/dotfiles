@@ -18,7 +18,7 @@ if tput setaf 1 &> /dev/null; then
     ORANGE=$(tput setaf 172)
     GREEN=$(tput setaf 190)
     PURPLE=$(tput setaf 141)
-    WHITE=$(tput setaf 255)
+    WHITE=$(tput setaf 7)
   else
     MAGENTA=$(tput setaf 5)
     ORANGE=$(tput setaf 4)
@@ -50,7 +50,7 @@ function __git_branch() {
 # Only show username/host if not default
 function usernamehost() {
   if [[ $USER != $default_username1 && $USER != $default_username2 ]]; then
-    echo "${MAGENTA}$USER ${WHITE}at ${ORANGE}$HOSTNAME ${WHITE}in ";
+    echo "${BOLD}${MAGENTA}${USER}${RESET} at ${BOLD}${ORANGE}${HOSTNAME}${RESET} in ";
   fi
 }
 
@@ -68,6 +68,7 @@ __git_svn_ps1() {
     s="$color[$b$f]"
   elif [[ -d .git ]] ; then
     s=`__git_branch`
+    s="($s)"
   fi
   echo -n "$s"
 }
@@ -118,4 +119,4 @@ __svn_rev() {
 # \[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]
 
 #PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
-PS1="\n${BOLD}\$(usernamehost)\[$GREEN\]\w\[$WHITE\]\$([[ -n \$(__git_svn_ps1 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(__git_svn_ps1)\[$WHITE\]\n\$ \[$RESET\]"
+PS1="\n\$(usernamehost)\[${BOLD}${GREEN}\]\w\[$RESET\]\$([[ -n \$(__git_svn_ps1 2> /dev/null) ]] && echo \" on \")\[${BOLD}${PURPLE}\]\$(__git_svn_ps1)\[$WHITE\]\n\$ \[$RESET\]"
