@@ -21,5 +21,5 @@ export PATH=/usr/local/bin:$PATH:~/bin
 
 # Cygwin specific
 if [[ "$OSTYPE" =~ ^cygwin ]]; then
-  export PATH=$PATH:$HOME/dev/web/st3:$HOME/dev/web/php70:$HOME/dev/web/mysql/bin
+  export PATH=$PATH:$HOME/dev/web/nodejs:$HOME/dev/web/st3:$HOME/dev/web/php70:$HOME/dev/web/mysql/bin
 fi
