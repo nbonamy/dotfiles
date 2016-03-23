@@ -76,9 +76,9 @@ function restart() {
     fi
   elif [ "$1" == "php" ]; then
     if [ -d /etc/php/7.0 ]; then
-      sudo vi /etc/init.d/php7.0-fpm restart
+      sudo /etc/init.d/php7.0-fpm restart
     else
-      sudo vi /etc/init.d/php5-fpm restart
+      sudo /etc/init.d/php5-fpm restart
     fi
   elif [ "$1" == "mysql" ]; then
     sudo /etc/init.d/mysql restart
