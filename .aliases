@@ -10,7 +10,7 @@ alias df="df -P -kHl"
 alias composer="php composer.phar"
 
 # edit hosts
-alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
+alias hosts="sudo $EDITOR /etc/hosts"
 
 # hosts shortcuts
 alias conn="connect"
@@ -68,3 +68,4 @@ if [[ "$OSTYPE" =~ ^cygwin ]]; then
   alias start='~/bin/start.sh'
   alias halt='~/bin/halt.sh'
 fi
+
