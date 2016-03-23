@@ -13,6 +13,8 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# Vi stuff
+# vim stuff
+.vim/backups
+.vim/swaps
+.vim/undo
 .vim/.netrwhist
-.vim/undo/*
