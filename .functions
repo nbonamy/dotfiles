@@ -33,6 +33,10 @@ function extract() {
 	fi
 }
 
+function know() {
+  sed -i '' '/$1/d' ~/.ssh/known_hosts
+}
+
 function connect() {
   ssh -p 2204 nico@$1
 }
@@ -57,6 +61,8 @@ function conf() {
     sudo vi /etc/mysql/conf.d/scorecast.cnf
   elif [ "$1" == "redis" ]; then
     sudo vi /etc/redis/redis.conf
+  elif [ "$1" == "firewall" ]; then
+    sudo vi /etc/init.d/firewall
   else
     echo "Usage: $FUNCNAME [nginx|php|mysql|redis]"
   fi
@@ -84,6 +90,8 @@ function restart() {
     sudo /etc/init.d/mysql restart
   elif [ "$1" == "redis" ]; then
     sudo /etc/init.d/redis restart
+  elif [ "$1" == "firewall" ]; then
+    sudo /etc/init.d/firewall
   else
     echo "Usage: $FUNCNAME [nginx|php|mysql|redis]"
   fi
