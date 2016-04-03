@@ -63,8 +63,12 @@ function conf() {
     sudo vi /etc/redis/redis.conf
   elif [ "$1" == "firewall" ]; then
     sudo vi /etc/init.d/firewall
+  elif [ "$1" == "app" ]; then
+    vi /var/www/scorecast/conf/app.yml
+  elif [ "$1" == "sys" ]; then
+    vi /var/www/scorecast/conf/sys.yml
   else
-    echo "Usage: $FUNCNAME [nginx|php|mysql|redis]"
+    echo "Usage: $FUNCNAME [nginx|php|mysql|redis|firewall|app|sys]"
   fi
 
 }
@@ -93,7 +97,7 @@ function restart() {
   elif [ "$1" == "firewall" ]; then
     sudo /etc/init.d/firewall
   else
-    echo "Usage: $FUNCNAME [nginx|php|mysql|redis]"
+    echo "Usage: $FUNCNAME [nginx|php|mysql|redis|firewall]"
   fi
 
 }
