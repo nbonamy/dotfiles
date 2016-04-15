@@ -93,11 +93,13 @@ function restart() {
   elif [ "$1" == "mysql" ]; then
     sudo /etc/init.d/mysql restart
   elif [ "$1" == "redis" ]; then
-    sudo /etc/init.d/redis restart
+    sudo /etc/init.d/redis-server restart
+  elif [ "$1" == "resque" ]; then
+    sudo /etc/init.d/resque restart
   elif [ "$1" == "firewall" ]; then
     sudo /etc/init.d/firewall
   else
-    echo "Usage: $FUNCNAME [nginx|php|mysql|redis|firewall]"
+    echo "Usage: $FUNCNAME [nginx|php|mysql|redis|resque|firewall]"
   fi
 
 }
