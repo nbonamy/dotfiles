@@ -41,6 +41,14 @@ function connect() {
   ssh -p 2204 nico@$1
 }
 
+function upcusto() {
+	if [ -z "$1" ] || [ -z "$2" ]; then
+		echo "Usage: $O <host> <file>"
+		return 1
+	fi
+	scp -P 2204 $2 nico@$1:/var/www/scorecast/images/customization
+}
+
 function conf() {
 
   if [ "$1" == "nginx" ]; then
