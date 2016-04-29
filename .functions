@@ -43,10 +43,18 @@ function connect() {
 
 function upcusto() {
 	if [ -z "$1" ] || [ -z "$2" ]; then
-		echo "Usage: $O <host> <file>"
+		echo "Usage: $0 <server> <files...>"
 		return 1
 	fi
-	scp -P 2204 $2 nico@$1:/var/www/scorecast/images/customization
+	server=$1
+	shift
+	ssh-copy-id nico@${server} -p 2204 2> /dev/null
+	for file in "$@"
+	do
+		scp -P 2204 $file nico@${server}:/var/www/scorecast/images/customization
+	done
+	ssh -p 2204 nico@${server} chown nico:www-data /var/www/scorecast/images/customization/*
+	ssh -p 2204 nico@${server} chmod 664 /var/www/scorecast/images/customization/*
 }
 
 function conf() {

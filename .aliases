@@ -66,6 +66,7 @@ fi
 
 # Cygwin specific stuff
 if [[ "$OSTYPE" =~ ^cygwin ]]; then
+	alias hosts="$EDITOR /cygdrive/c/Windows/System32/drivers/etc/hosts"
   alias start='~/bin/start.sh'
   alias halt='~/bin/halt.sh'
 fi
