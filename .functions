@@ -38,7 +38,7 @@ function know() {
 }
 
 function connect() {
-  ssh -p 2204 nico@$1
+  ssh -p 2204 nico@$1 ${@:2}
 }
 
 function upcusto() {
@@ -130,15 +130,15 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         nginx stop
         nginx start
       elif [[ $1 == 'start' ]]; then
-        brew services start redis
-        brew services start php${phpver}
-        sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.mysql56.plist
-        sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+        sudo brew services start redis
+        sudo brew services start php${phpver}
+				sudo brew services start homebrew/versions/mysql56
+        sudo brew services start nginx
       else
-        sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.mysql56.plist
-        sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
-        brew services stop php${phpver}
-        brew services stop redis
+				sudo brew services stop nginx
+				sudo brew services stop homebrew/versions/mysql56
+        sudo brew services stop php${phpver}
+        sudo brew services stop redis
       fi
     else
       echo "usage: nginx <start|stop|restart>"

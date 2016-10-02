@@ -50,8 +50,14 @@ alias zap="rm -rf"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
+# PHP Composer
+alias composer="php composer.phar"
+
 # Mac specific stuff
 if [[ "$OSTYPE" =~ ^darwin ]]; then
+
+	# htop
+	alias htop="sudo htop"
 
   # iPhone Simulator
   alias simulator="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"

@@ -30,12 +30,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     source `brew --prefix`/etc/bash_completion
   fi
 
-  # homebrew completion
-  if  which brew > /dev/null; then
-    source `brew --repository`/Library/Contributions/brew_bash_completion.sh
-  fi
-
   # Docker
-  eval "$(docker-machine env default)"
+  #eval "$(docker-machine env default)"
 
 fi
+
