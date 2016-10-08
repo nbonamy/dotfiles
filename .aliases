@@ -7,7 +7,6 @@ alias -- -="cd -"
 alias x="exit"
 alias h="history 100"
 alias df="df -P -kHl"
-#alias composer="php composer.phar"
 alias svi="sudo vi"
 
 # edit hosts
