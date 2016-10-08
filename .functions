@@ -7,7 +7,7 @@ function md() {
 
 # find shorthand
 function f() {
-    find . -name "$1"
+	find . -name "$1"
 }
 
 # Extract archives - use: extract <file>
@@ -39,6 +39,14 @@ function know() {
 
 function connect() {
   ssh -p 2204 nico@$1 ${@:2}
+}
+
+function upload() {
+  scp -P 2204 $2 nico@$1:$3
+}
+
+function download() {
+  scp -P 2204 nico@$1:$2 $3
 }
 
 function upcusto() {
@@ -122,8 +130,8 @@ function restart() {
 
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 
-  # start/stop nginx
-  nginx() {
+  # start/stop http stack
+  web() {
     if [[ -n "$1" ]]; then
       phpver="`php -r \"echo str_replace('.', '', substr(phpversion(), 0, 3));\"`"
       if [[ $1 == 'restart' ]]; then
