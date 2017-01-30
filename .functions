@@ -149,9 +149,19 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         sudo brew services stop redis
       fi
     else
-      echo "usage: nginx <start|stop|restart>"
+      echo "usage: $FUNCNAME <start|stop|restart>"
     fi
   }
 
 fi
+
+svnreloc() {
+	if [[ -n "$1" ]]; then
+		old=$(svn info $1 | grep "^URL" | cut -c 6-)
+		new=$(echo $old | sed -e 's/http/https/g' -e 's/svn\/S/s/g')
+		svn switch --relocate $old $new $1
+	else
+		echo "usage: $FUNCNAME dir"
+	fi
+}
 
