@@ -126,3 +126,4 @@ __svn_rev() {
 PS1="\n\$(usernamehost)\[${BOLD}${GREEN}\]\w\[$RESET\]"
 PS1+="\$([[ -n \$(__git_svn_ps1 2> /dev/null) ]] && echo \" on \")"
 PS1+="\[${BOLD}${PURPLE}\]\$(__git_svn_ps1)\[$WHITE\]\n\$ \[$RESET\]"
+
