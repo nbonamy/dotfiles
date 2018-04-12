@@ -22,7 +22,7 @@ export HISTTIMEFORMAT
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
 # Try to guess system
-type -t lsb_release 2&1> /dev/null || export SYSTEM=$(lsb_release -a | grep "ID:" | cut -f 2- -d ":" | sed -e 's/[ \t]*//g')
+[[ $(type -P lsb_release) ]] && export SYSTEM=$(lsb_release -a | grep "ID:" | cut -f 2- -d ":" | sed -e 's/[ \t]*//g')
 if [[ "$OSTYPE" =~ ^darwin ]]; then
   export SYSTEM=MacOS
 fi
