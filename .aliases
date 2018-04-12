@@ -44,7 +44,7 @@ alias composer="php composer.phar"
 alias pip="pip2"
 
 # Debian
-if [[ "$LINUX_DISTRI" == "Debian" ]]; then
+if [[ "$SYSTEM" == "Debian" ]]; then
   source dotfiles/.aliases-debian
 fi
 

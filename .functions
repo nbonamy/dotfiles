@@ -37,7 +37,7 @@ function know() {
   sed -i '' '/$1/d' ~/.ssh/known_hosts
 }
 
-if [[ "$LINUX_DISTRI" == "Debian" ]]; then
+if [[ "$SYSTEM" == "Debian" ]]; then
   source dotfiles/.functions-debian
 fi
 
