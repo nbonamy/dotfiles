@@ -1,0 +1,64 @@
+#!/bin/bash
+
+function conf() {
+
+  if [ "$1" == "nginx" ]; then
+    if [ -f /etc/nginx/sites-enabled/scorecast-proxy.nginx.conf ]; then
+      sudo vi /etc/nginx/sites-enabled/scorecast-proxy.nginx.conf
+    elif [ -f /etc/nginx/sites-enabled/scorecast.nginx.conf ]; then
+      sudo vi /etc/nginx/sites-enabled/scorecast.nginx.conf
+    else
+      cd /etc/nginx/sites-enabled/
+    fi
+  elif [ "$1" == "php" ]; then
+    if [ -d /etc/php/7.0 ]; then
+      sudo vi /etc/php/7.0/fpm/pool.d/www.conf
+    else
+      sudo vi /etc/php5/fpm/pool.d/www.conf
+    fi
+  elif [ "$1" == "mysql" ]; then
+    sudo vi /etc/mysql/conf.d/scorecast.cnf
+  elif [ "$1" == "redis" ]; then
+    sudo vi /etc/redis/redis.conf
+  elif [ "$1" == "firewall" ]; then
+    sudo vi /etc/init.d/firewall
+  elif [ "$1" == "app" ]; then
+    vi /var/www/scorecast/conf/app.yml
+  elif [ "$1" == "sys" ]; then
+    vi /var/www/scorecast/conf/sys.yml
+  else
+    echo "Usage: $FUNCNAME [nginx|php|mysql|redis|firewall|app|sys]"
+  fi
+
+}
+
+function restart() {
+
+  if [ "$1" == "nginx" ]; then
+    sudo /usr/sbin/nginx -t
+    if [ "$?" == 0 ]; then
+      sudo /etc/init.d/nginx reload
+    else
+      RED=$(tput setaf 9)
+      NC=$(tput sgr0)
+      echo "[ ${RED}ko${NC} ] error in configuration file. Not restarting nginx"
+    fi
+  elif [ "$1" == "php" ]; then
+    if [ -d /etc/php/7.0 ]; then
+      sudo /etc/init.d/php7.0-fpm restart
+    else
+      sudo /etc/init.d/php5-fpm restart
+    fi
+  elif [ "$1" == "mysql" ]; then
+    sudo /etc/init.d/mysql restart
+  elif [ "$1" == "redis" ]; then
+    sudo /etc/init.d/redis-server restart
+  elif [ "$1" == "resque" ]; then
+    sudo /etc/init.d/resque restart
+  elif [ "$1" == "firewall" ]; then
+    sudo /etc/init.d/firewall
+  else
+    echo "Usage: $FUNCNAME [nginx|php|mysql|redis|resque|firewall]"
+  fi
+
+}

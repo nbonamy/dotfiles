@@ -1,0 +1,3 @@
+#!/bin/bash
+
+alias hosts="$EDITOR /cygdrive/c/Windows/System32/drivers/etc/hosts"

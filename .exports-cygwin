@@ -1,0 +1,2 @@
+
+export PATH=$PATH:$HOME/dev/web/nodejs:$HOME/dev/web/st3:$HOME/dev/web/php70:$HOME/dev/web/mysql/bin

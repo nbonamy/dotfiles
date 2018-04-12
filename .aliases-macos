@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# color ls
+alias ls="command ls -G"
+
+# htop
+alias htop="sudo htop"
+
+# Fastlane
+alias fastlane="bundle exec fastlane"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+
+# iPhone Simulator
+alias simulator="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
+
+# Android stuff
+alias adb="~/Sources/android-sdk-macosx/platform-tools/adb"

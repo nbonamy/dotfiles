@@ -1,10 +1,12 @@
+
 # Make vim the default editor
 export EDITOR="vim"
+
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
-# Larger bash history (allow 32³ entries; default is 500)
-export HISTSIZE=32768
+# bash history size
+export HISTSIZE=4096
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 
@@ -19,12 +21,21 @@ export HISTTIMEFORMAT
 # Show useful stuff in term title
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
-# Mac OS X specific
+# Try to guess system
+type -t lsb_release 2&1> /dev/null || export SYSTEM=$(lsb_release -a | grep "ID:" | cut -f 2- -d ":" | sed -e 's/[ \t]*//g')
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-  export PATH="$(brew --prefix)/bin:$(brew --prefix php70)/bin:~/bin:/usr/local/sbin:$PATH:/Users/nbonamy/Sources/android-sdk-macosx/platform-tools:/Applications/Parallels Desktop.app/Contents/MacOS"
+  export SYSTEM=MacOS
+fi
+if [[ "$OSTYPE" =~ ^cygwin ]]; then
+  export SYSTEM=cygwin
+fi
+
+# Mac OS X specific
+if [[ "$SYSTEM" == "MacOS" ]]; then
+  source dotfiles/.exports-macos
 fi
 
 # Cygwin specific
-if [[ "$OSTYPE" =~ ^cygwin ]]; then
-  export PATH=$PATH:$HOME/dev/web/nodejs:$HOME/dev/web/st3:$HOME/dev/web/php70:$HOME/dev/web/mysql/bin
+if [[ "$SYSTEM" == "cygwin" ]]; then
+  source dotfiles/.exports-cygwin
 fi
