@@ -27,3 +27,8 @@ web() {
 livesync() {
   fswatch -r $1 | xargs -I{} rsync -rm --delete $1 $2
 }
+
+# Check port usage
+check-port() {
+  sudo lsof -nP -iTCP:$1 -sTCP:LISTEN
+}
