@@ -62,3 +62,7 @@ function restart() {
   fi
 
 }
+
+function check-port() {
+  sudo netstat -tulpn | grep ":$1 "
+}
