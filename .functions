@@ -37,10 +37,17 @@ function know() {
   sed -i '' '/$1/d' ~/.ssh/known_hosts
 }
 
+# Debian specific
 if [[ "$SYSTEM" == "Debian" ]]; then
-  source dotfiles/.functions-debian
+  source dotfiles/.functions-debian 2> /dev/null
 fi
 
+# Mac specific
 if [[ "$SYSTEM" == "MacOS" ]]; then
-  source dotfiles/.functions-macos
+  source dotfiles/.functions-macos 2> /dev/null
+fi
+
+# Cygwin specific
+if [[ "$SYSTEM" == "cygwin" ]]; then
+  source dotfiles/.functions-cygwin 2> /dev/null
 fi

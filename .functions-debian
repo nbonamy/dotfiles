@@ -23,9 +23,9 @@ function conf() {
   elif [ "$1" == "firewall" ]; then
     sudo vi /etc/init.d/firewall
   elif [ "$1" == "app" ]; then
-    vi /var/www/scorecast/conf/app.yml
+    vi /var/www/scorecast/config/app.yml
   elif [ "$1" == "sys" ]; then
-    vi /var/www/scorecast/conf/sys.yml
+    vi /var/www/scorecast/config/sys.yml
   else
     echo "Usage: $FUNCNAME [nginx|php|mysql|redis|firewall|app|sys]"
   fi
@@ -61,4 +61,8 @@ function restart() {
     echo "Usage: $FUNCNAME [nginx|php|mysql|redis|resque|firewall]"
   fi
 
+}
+
+function check-port() {
+  sudo netstat -tulpn | grep ":$1 "
 }

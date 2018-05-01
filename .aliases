@@ -43,17 +43,17 @@ alias composer="php composer.phar"
 # python stuff
 alias pip="pip2"
 
-# Debian
+# Debian specific
 if [[ "$SYSTEM" == "Debian" ]]; then
-  source dotfiles/.aliases-debian
+  source dotfiles/.aliases-debian 2> /dev/null
 fi
 
-# Mac specific stuff
+# Mac specific
 if [[ "$SYSTEM" == "MacOS" ]]; then
-  source dotfiles/.aliases-macos
+  source dotfiles/.aliases-macos 2> /dev/null
 fi
 
-# Cygwin specific stuff
+# Cygwin specific
 if [[ "$SYSTEM" == "cygwin" ]]; then
-  source dotfiles/.aliases-cygwin
+  source dotfiles/.aliases-cygwin 2> /dev/null
 fi
