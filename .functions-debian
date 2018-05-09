@@ -17,7 +17,7 @@ function conf() {
       sudo vi /etc/php5/fpm/pool.d/www.conf
     fi
   elif [ "$1" == "mysql" ]; then
-    sudo vi /etc/mysql/conf.d/scorecast.cnf
+    sudo vi /etc/mysql/mariadb.conf.d/90-scorecast.cnf
   elif [ "$1" == "redis" ]; then
     sudo vi /etc/redis/redis.conf
   elif [ "$1" == "haproxy" ]; then
