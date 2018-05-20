@@ -17,9 +17,11 @@ function conf() {
       sudo vi /etc/php5/fpm/pool.d/www.conf
     fi
   elif [ "$1" == "mysql" ]; then
-    sudo vi /etc/mysql/conf.d/scorecast.cnf
+    sudo vi /etc/mysql/mariadb.conf.d/90-scorecast.cnf
   elif [ "$1" == "redis" ]; then
     sudo vi /etc/redis/redis.conf
+  elif [ "$1" == "haproxy" ]; then
+    sudo vi /etc/haproxy/haproxy.cfg
   elif [ "$1" == "firewall" ]; then
     sudo vi /etc/init.d/firewall
   elif [ "$1" == "app" ]; then
@@ -27,7 +29,7 @@ function conf() {
   elif [ "$1" == "sys" ]; then
     vi /var/www/scorecast/config/sys.yml
   else
-    echo "Usage: $FUNCNAME [nginx|php|mysql|redis|firewall|app|sys]"
+    echo "Usage: $FUNCNAME [nginx|php|mysql|redis|haproxy|firewall|app|sys]"
   fi
 
 }
