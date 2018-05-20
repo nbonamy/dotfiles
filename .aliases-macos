@@ -17,3 +17,6 @@ alias simulator="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhon
 
 # Android stuff
 alias adb="~/Sources/android-sdk-macosx/platform-tools/adb"
+
+# The fuck
+eval $(thefuck --alias)

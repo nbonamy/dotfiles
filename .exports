@@ -39,3 +39,8 @@ fi
 if [[ "$SYSTEM" == "cygwin" ]]; then
   source dotfiles/.exports-cygwin
 fi
+
+# Local exports
+if [ -f ~/.exports-local ]; then
+  source ~/.exports-local 2> /dev/null
+fi
