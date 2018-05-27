@@ -3,10 +3,10 @@
 function conf() {
 
   if [ "$1" == "nginx" ]; then
-    if [ -f /etc/nginx/sites-enabled/scorecast-proxy.nginx.conf ]; then
-      sudo vi /etc/nginx/sites-enabled/scorecast-proxy.nginx.conf
-    elif [ -f /etc/nginx/sites-enabled/scorecast.nginx.conf ]; then
-      sudo vi /etc/nginx/sites-enabled/scorecast.nginx.conf
+    if [ -f /etc/nginx/sites-enabled/scorecast.proxy.conf ]; then
+      sudo vi /etc/nginx/sites-enabled/scorecast.proxy.conf
+    elif [ -f /etc/nginx/sites-enabled/scorecast.local.conf ]; then
+      sudo vi /etc/nginx/sites-enabled/scorecast.local.conf
     else
       cd /etc/nginx/sites-enabled/
     fi
