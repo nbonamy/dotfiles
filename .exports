@@ -21,6 +21,11 @@ export HISTTIMEFORMAT
 # Show useful stuff in term title
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
+# Add bin if it exists
+if [ -d "$HOME/bin" ]; then
+	export PATH=$PATH:$HOME/bin
+fi
+
 # Try to guess system
 [[ $(type -P lsb_release) ]] && export SYSTEM=$(lsb_release -a 2> /dev/null | grep "ID:" | cut -f 2- -d ":" | sed -e 's/[ \t]*//g')
 if [[ "$OSTYPE" =~ ^darwin ]]; then
