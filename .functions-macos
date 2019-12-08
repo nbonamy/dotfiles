@@ -3,19 +3,19 @@
 # start/stop http stack
 web() {
   if [[ -n "$1" ]]; then
-    phpver="`php -r \"echo str_replace('.', '', substr(phpversion(), 0, 3));\"`"
+    #phpver="`php -r \"echo str_replace('.', '', substr(phpversion(), 0, 3));\"`"
     if [[ $1 == 'restart' ]]; then
       web stop
       web start
     elif [[ $1 == 'start' ]]; then
       sudo brew services start redis
-      sudo brew services start php${phpver}
+      sudo brew services start exolnet/deprecated/php@7.0
       sudo brew services start mysql
       sudo brew services start nginx
     else
       sudo brew services stop nginx
       sudo brew services stop mysql
-      sudo brew services stop php${phpver}
+      sudo brew services stop exolnet/deprecated/php@7.0
       sudo brew services stop redis
     fi
   else

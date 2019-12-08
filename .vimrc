@@ -259,3 +259,7 @@ let g:vimclojure#FuzzyIndent = 1 " Names beginning in 'def' or 'with' to be inde
 
 " Rainbow Parenthesis
 nnoremap <leader>rp :RainbowParenthesesToggle<CR>
+
+" sudo overwrite
+cmap w!! w !sudo tee > /dev/null %
+

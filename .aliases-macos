@@ -20,3 +20,4 @@ alias adb="~/Sources/android-sdk-macosx/platform-tools/adb"
 
 # The fuck
 eval $(thefuck --alias)
+
