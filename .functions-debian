@@ -3,13 +3,15 @@
 function conf() {
 
   if [ "$1" == "nginx" ]; then
-    if [ -f /etc/nginx/sites-enabled/scorecast-proxy.nginx.conf ]; then
-      sudo vi /etc/nginx/sites-enabled/scorecast-proxy.nginx.conf
-    elif [ -f /etc/nginx/sites-enabled/scorecast.nginx.conf ]; then
-      sudo vi /etc/nginx/sites-enabled/scorecast.nginx.conf
+    if [ -f /etc/nginx/sites-enabled/scorecast.proxy.conf ]; then
+      sudo vi /etc/nginx/sites-enabled/scorecast.proxy.conf
+    elif [ -f /etc/nginx/sites-enabled/scorecast.local.conf ]; then
+      sudo vi /etc/nginx/sites-enabled/scorecast.local.conf
     else
       cd /etc/nginx/sites-enabled/
     fi
+  elif [ "$1" == "upstream" ]; then
+    sudo vi /etc/nginx/sites-enabled/scorecast.upstream.conf
   elif [ "$1" == "php" ]; then
     if [ -d /etc/php/7.0 ]; then
       sudo vi /etc/php/7.0/fpm/pool.d/www.conf
@@ -29,7 +31,7 @@ function conf() {
   elif [ "$1" == "sys" ]; then
     vi /var/www/scorecast/config/sys.yml
   else
-    echo "Usage: $FUNCNAME [nginx|php|mysql|redis|haproxy|firewall|app|sys]"
+    echo "Usage: $FUNCNAME [nginx|upstream|php|mysql|redis|haproxy|firewall|app|sys]"
   fi
 
 }
