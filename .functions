@@ -37,6 +37,16 @@ function know() {
   sed -i '' '/$1/d' ~/.ssh/known_hosts
 }
 
+function dsh() {
+	search=$1
+	shell=${2-bash}
+	count=$(($(docker container ls | tail -1 | wc -l)))
+	[ $count -eq 1 ] && [ -z $search ] && search=.
+	[ -z $search ] && echo "Usage: dsh <search term>" && return 1
+	docker exec -it $(docker container ls | tail -1 | grep $search | awk '{print $1}') $shell 2> /dev/null
+	[ $? -ne 0 ] && echo "Container not found" && return 1
+}
+
 # Debian specific
 if [[ "$SYSTEM" == "Debian" ]]; then
   source dotfiles/.functions-debian 2> /dev/null
