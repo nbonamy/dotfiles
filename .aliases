@@ -43,6 +43,10 @@ alias composer="php composer.phar"
 # python stuff
 alias pip="pip2"
 
+# docker
+alias dockerrmconts='docker rm -f $(docker ps --filter "exited=true" -q)'
+alias dockerrmimages='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
+
 # Debian specific
 if [[ "$SYSTEM" == "Debian" ]]; then
   source dotfiles/.aliases-debian 2> /dev/null
