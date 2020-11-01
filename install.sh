@@ -2,6 +2,8 @@
 echo Installing dotfiles
 for i in .bashrc .bash_profile .bash_prompt .functions .aliases .exports .vim .vimrc
 do
-	rm ~/$i
+	if [ -f ~/$i ]; then
+		rm ~/$i
+	fi
 	ln -s ~/dotfiles/$i ~
 done
