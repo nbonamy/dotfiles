@@ -1,6 +1,6 @@
 
 export ANDROID_HOME="/Users/$USER/Library/Android/sdk"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home/jre"
 export PATH="$(brew --prefix)/bin:~/bin:/usr/local/sbin:$PATH"
 export PATH="$PATH:/Applications/Parallels Desktop.app/Contents/MacOS"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
