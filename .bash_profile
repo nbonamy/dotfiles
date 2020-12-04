@@ -9,6 +9,9 @@ unset file
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
+# Auto-complete dir symlinks with trailing slash
+bind 'set mark-symlinked-directories on'
+
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
