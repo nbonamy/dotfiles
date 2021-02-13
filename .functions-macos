@@ -32,3 +32,13 @@ livesync() {
 check-port() {
   sudo lsof -nP -iTCP:$1 -sTCP:LISTEN
 }
+
+joinpdf() {
+	files=$(ls -rt *.pdf)
+	output=$1
+	if [[ "$output" == "" ]]; then
+		output=joined.pdf
+	fi
+	/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py -o $output $files
+}
+
