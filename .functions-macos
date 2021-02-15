@@ -34,11 +34,14 @@ check-port() {
 }
 
 joinpdf() {
-	files=$(ls -rt *.pdf)
 	output=$1
+	input=${@:2}
 	if [[ "$output" == "" ]]; then
 		output=joined.pdf
 	fi
-	/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py -o $output $files
+	if [[ "$input" == "" ]]; then
+		input=$(ls -rt *.pdf)
+	fi
+	/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py -o "$output" $input
 }
 
