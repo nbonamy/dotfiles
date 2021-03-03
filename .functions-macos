@@ -40,7 +40,7 @@ joinpdf() {
 		output=joined.pdf
 	fi
 	if [[ "$input" == "" ]]; then
-		input=$(ls -rt *.pdf)
+		input=$(ls *.pdf)
 	fi
 	/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py -o "$output" $input
 }
