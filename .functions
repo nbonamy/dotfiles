@@ -40,11 +40,13 @@ function know() {
 function dsh() {
 	search=$1
 	shell=${2-bash}
-	count=$(($(docker container ls | tail -1 | wc -l)))
+	count=$(($(docker container ls | tail -n+2 | wc -l)))
 	[ $count -eq 1 ] && [ -z $search ] && search=.
-	[ -z $search ] && echo "Usage: dsh <search term>" && return 1
-	docker exec -it $(docker container ls | tail -1 | grep $search | awk '{print $1}') $shell 2> /dev/null
-	[ $? -ne 0 ] && echo "Container not found" && return 1
+	[ -z $search ] && echo "Usage: dsh [search term if multiple containers running]" && echo && docker container ls && return 1
+	count=$(($(docker container ls | tail -n+2 | grep $search | wc -l)))
+	[ $count -ne 1 ] && echo "Error: no or multiple containers found for \"$search\"" && echo && docker container ls && return 1
+	docker exec -it $(docker container ls | tail -n+2 | grep $search | awk '{print $1}') $shell 2> /dev/null
+	[ $? -ne 0 ] && echo "Error: make sure $shell exists" && return 1
 }
 
 # Debian specific
