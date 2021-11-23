@@ -22,6 +22,7 @@ fi
 
 # List all files colorized in long format
 alias ll="ls -l ${colorflag}"
+alias lh="ls -hl ${colorflag}"
 alias la="LC_ALL=C ll -A"
 
 # Always use color output for `ls`
