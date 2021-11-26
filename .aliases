@@ -48,9 +48,9 @@ alias pip="pip2"
 alias dockerrmconts='docker rm -f $(docker ps --filter "status=exited" -q)'
 alias dockerrmimages='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 
-# Debian specific
-if [[ "$SYSTEM" == "Debian" ]]; then
-  source dotfiles/.aliases-debian 2> /dev/null
+# Linux specific
+if [[ "$(uname -s)" == "Linux" ]]; then
+  source dotfiles/.aliases-linux 2> /dev/null
 fi
 
 # Mac specific

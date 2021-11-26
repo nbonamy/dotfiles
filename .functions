@@ -47,9 +47,9 @@ function dsh() {
 	[ $? -ne 0 ] && echo "Container not found" && return 1
 }
 
-# Debian specific
-if [[ "$SYSTEM" == "Debian" ]]; then
-  source dotfiles/.functions-debian 2> /dev/null
+# Linux specific
+if [[ "$(uname -s)" == "Linux" ]]; then
+  source dotfiles/.functions-linux 2> /dev/null
 fi
 
 # Mac specific
