@@ -46,6 +46,7 @@ alias pip="pip2"
 # docker
 alias dockerrmconts='docker rm -f $(docker ps --filter "status=exited" -q)'
 alias dockerrmimages='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
+alias nginxit='PWD=$(pwd) docker run --name nginx${PWD//\//-} -v ${PWD}:/usr/share/nginx/html:ro -p 8080:80 -d nginx'
 
 # git
 alias gst='git status'
