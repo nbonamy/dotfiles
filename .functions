@@ -40,11 +40,16 @@ function know() {
 function dsh() {
 	search=$1
 	shell=${2-bash}
-	count=$(($(docker container ls | tail -1 | wc -l)))
+	containers=$(docker container ls 2> /dev/null)
+	[ $? -ne 0 ] && echo "Error: docker does not seem to be running" && return 1
+	count=$(($(echo "$containers" | tail -n+2 | wc -l)))
+	[ $count -eq 0 ] && echo "Error: no container seems to be running" && return 1
 	[ $count -eq 1 ] && [ -z $search ] && search=.
-	[ -z $search ] && echo "Usage: dsh <search term>" && return 1
-	docker exec -it $(docker container ls | tail -1 | grep $search | awk '{print $1}') $shell 2> /dev/null
-	[ $? -ne 0 ] && echo "Container not found" && return 1
+	[ -z $search ] && echo "Usage: dsh [search term if multiple containers running]" && echo && echo "$containers" && return 1
+	count=$(($(echo "$containers" | tail -n+2 | grep $search | wc -l)))
+	[ $count -ne 1 ] && echo "Error: no or multiple containers found for \"$search\"" && echo && echo "$containers" && return 1
+	docker exec -it $(echo "$containers" | tail -n+2 | grep $search | awk '{print $1}') $shell 2> /dev/null
+	[ $? -ne 0 ] && echo "Error: make sure $shell exists" && return 1
 }
 
 # Linux specific

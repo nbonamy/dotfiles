@@ -48,6 +48,11 @@ alias pip="pip2"
 alias dockerrmconts='docker rm -f $(docker ps --filter "status=exited" -q)'
 alias dockerrmimages='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 
+# git
+alias gst='git status'
+alias gpa='git pull --all'
+alias gadd='git add .'
+
 # Linux specific
 if [[ "$(uname -s)" == "Linux" ]]; then
   source dotfiles/.aliases-linux 2> /dev/null
