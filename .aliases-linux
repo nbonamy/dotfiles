@@ -3,3 +3,6 @@
 # debian apt aliases
 alias apt-check=$'sudo apt-get --just-print upgrade 2>&1 | perl -ne \'if (/Inst\s([\w,\-,\d,\.,~,:,\+]+)\s\[([\w,\-,\d,\.,~,:,\+]+)\]\s\(([\w,\-,\d,\.,~,:,\+]+)\)? /i) {print "PROGRAM: $1 INSTALLED: $2 AVAILABLE: $3\n"}\''
 alias apt-upgrade="sudo apt-get install --only-upgrade"
+
+# network stats
+alias iftop="sudo /usr/sbin/iftop -B -b -t -s 1"

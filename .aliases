@@ -22,6 +22,7 @@ fi
 
 # List all files colorized in long format
 alias ll="ls -l ${colorflag}"
+alias lh="ls -hl ${colorflag}"
 alias la="LC_ALL=C ll -A"
 
 # Always use color output for `ls`
@@ -53,9 +54,9 @@ alias gst='git status'
 alias gpa='git pull --all'
 alias gadd='git add .'
 
-# Debian specific
-if [[ "$SYSTEM" == "Debian" ]]; then
-  source dotfiles/.aliases-debian 2> /dev/null
+# Linux specific
+if [[ "$(uname -s)" == "Linux" ]]; then
+  source dotfiles/.aliases-linux 2> /dev/null
 fi
 
 # Mac specific
