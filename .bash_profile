@@ -17,9 +17,7 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
 # dircolors
-if [ -e "$HOME/dotfiles/.dircolors" ] && [ -x "dircolors" ]; then
-  eval "$(dircolors $HOME/dotfiles/.dircolors)"
-elif [ -e "$HOME/dotfiles/.lscolors" ]; then
+if [ -e "$HOME/dotfiles/.lscolors" ]; then
   source "$HOME/dotfiles/.lscolors"
 fi
 
