@@ -103,6 +103,7 @@ EXEC {exec}
 .dart {code}
 .rb {code}
 .sh {code}
+.ps1 {code}
 
 # documentation files
 *README {doc}
