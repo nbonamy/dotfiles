@@ -19,8 +19,8 @@ export LANG="en_US"
 # dircolors
 if [ -e "$HOME/dotfiles/.dircolors" ] && [ -x "dircolors" ]; then
   eval "$(dircolors $HOME/dotfiles/.dircolors)"
-elif [ -e "$HOME/dorfiles/.lscolors" ]; then
-  source "$HOME/dorfiles/.lscolors"
+elif [ -e "$HOME/dotfiles/.lscolors" ]; then
+  source "$HOME/dotfiles/.lscolors"
 fi
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
