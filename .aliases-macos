@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # color ls
-alias ls="command ls -G"
+if [ -e "/usr/local/opt/coreutils/libexec/gnubin/ls" ]; then
+	alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls"
+else
+	alias ls="command ls -G"
+fi
 
 # htop
 alias htop="sudo htop"
