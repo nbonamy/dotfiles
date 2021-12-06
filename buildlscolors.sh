@@ -12,5 +12,6 @@ while read -r line; do
   fi
 done < colors
 
+# final export
 dircolors=$(echo "$dircolors" | dircolors - | head -1)
 echo "export $dircolors" > .lscolors
