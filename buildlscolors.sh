@@ -8,10 +8,16 @@ while read -r line; do
   if [ "$line" != "" ] && [ "${line:0:1}" != "#" ]; then
     name=$(echo $line | cut -d ' ' -f 1)
     value=$(echo $line | cut -d ' ' -f 2)
-    dircolors=$(echo "$dircolors" | sed -e "s/{$name}/$value/g" -)
+    dircolors=$(echo "$dircolors" | sed -e "s/{$name}/$value/g")
   fi
 done < colors
 
+# dir color program
+if dircolors > /dev/null 2>&1; then
+  dircolor=dircolors
+else # OS X
+  dircolor=/usr/local/opt/coreutils/libexec/gnubin/dircolors
+fi
+
 # final export
-dircolors=$(echo "$dircolors" | dircolors - | head -1)
-echo "export $dircolors" > .lscolors
+echo "$dircolors" | $dircolor - > .lscolors
