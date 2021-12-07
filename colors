@@ -9,6 +9,9 @@ dir 01;38;5;33        # directories
 link 01;36            # links: use target to color same as target
 exec 38;5;196         # executables
 code 38;5;82          # source code
+log 38;5;178          # log files
+data 38;5;73          # data files
+config 38;5;73        # config files
 doc 38;5;111          # documents
 archive 38;5;202      # archives (compressed or not)
 image 38;5;165        # images
