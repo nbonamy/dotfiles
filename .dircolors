@@ -122,6 +122,7 @@ EXEC {exec}
 
 # data files
 .csv {data}
+.db {data}
 .json {data}
 .rss {data}
 .xml {data}
@@ -218,6 +219,7 @@ EXEC {exec}
 .pgm {image}
 .png {image}
 .ppm {image}
+.psd {image}
 .svg {image}
 .svgz {image}
 .tga {image}
