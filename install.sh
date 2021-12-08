@@ -5,5 +5,5 @@ do
 	if [ -f ~/$i ]; then
 		rm ~/$i
 	fi
-	ln -s ~/dotfiles/$i ~
+	ln -sf ~/dotfiles/$i ~
 done
