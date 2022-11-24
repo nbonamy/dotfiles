@@ -66,3 +66,9 @@ fi
 if [[ "$SYSTEM" == "cygwin" ]]; then
   source dotfiles/.functions-cygwin 2> /dev/null
 fi
+
+# Local function
+if [ -f ~/.functions-local ]; then
+  source ~/.functions-local 2> /dev/null
+fi
+
