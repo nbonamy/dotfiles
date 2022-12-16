@@ -10,7 +10,7 @@ unset file
 shopt -s nocaseglob
 
 # Auto-complete dir symlinks with trailing slash
-bind 'set mark-symlinked-directories on'
+#bind 'set mark-symlinked-directories on'
 
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
@@ -25,6 +25,12 @@ fi
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
 # MacOS specific settings
-if [[ "$SYSTEM" == "MacOS" ]]; then
-  source dotfiles/.bash_profile-macos
+#if [[ "$SYSTEM" == "MacOS" ]]; then
+  source $HOME/dotfiles/.bash_profile-macos
+#fi
+
+# Local settings 
+if [ -f $HOME/dotfiles/.bash_profile-local ]; then
+  source $HOME/dotfiles/.bash_profile-local 2> /dev/null
 fi
+

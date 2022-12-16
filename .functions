@@ -54,15 +54,15 @@ function dsh() {
 
 # Linux specific
 if [[ "$(uname -s)" == "Linux" ]]; then
-  source dotfiles/.functions-linux 2> /dev/null
+  source $HOME/dotfiles/.functions-linux 2> /dev/null
 fi
 
 # Mac specific
-if [[ "$SYSTEM" == "MacOS" ]]; then
-  source dotfiles/.functions-macos 2> /dev/null
-fi
+#if [[ "$SYSTEM" == "MacOS" ]]; then
+#  source $HOME/dotfiles/.functions-macos 2> /dev/null
+#fi
 
 # Cygwin specific
 if [[ "$SYSTEM" == "cygwin" ]]; then
-  source dotfiles/.functions-cygwin 2> /dev/null
+  source $HOME/dotfiles/.functions-cygwin 2> /dev/null
 fi

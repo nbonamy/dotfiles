@@ -56,20 +56,21 @@ alias gadd='git add .'
 
 # Linux specific
 if [[ "$(uname -s)" == "Linux" ]]; then
-  source dotfiles/.aliases-linux 2> /dev/null
+  source $HOME/dotfiles/.aliases-linux 2> /dev/null
 fi
 
 # Mac specific
 if [[ "$SYSTEM" == "MacOS" ]]; then
-  source dotfiles/.aliases-macos 2> /dev/null
+  source $HOME/dotfiles/.aliases-macos 2> /dev/null
 fi
 
 # Cygwin specific
 if [[ "$SYSTEM" == "cygwin" ]]; then
-  source dotfiles/.aliases-cygwin 2> /dev/null
+  source $HOME/dotfiles/.aliases-cygwin 2> /dev/null
 fi
 
 # Local aliases
-if [ -f ~/.aliases-local ]; then
-  source ~/.aliases-local 2> /dev/null
+if [ -f $HOME/.aliases-local ]; then
+  source $HOME/.aliases-local 2> /dev/null
 fi
+

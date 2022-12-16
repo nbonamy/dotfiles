@@ -14,5 +14,6 @@ fi
 # Docker
 #eval "$(docker-machine env default)"
 
-# Fastlane
+# path stuff
 export PATH="$HOME/.fastlane/bin:$PATH"
+#export PATH="/usr/local/opt/ruby/bin:$PATH"

@@ -37,7 +37,7 @@ fi
 
 # Mac OS X specific
 if [[ "$SYSTEM" == "MacOS" ]]; then
-  source dotfiles/.exports-macos
+  source $HOME/dotfiles/.exports-macos
 fi
 
 # Cygwin specific
@@ -46,6 +46,6 @@ if [[ "$SYSTEM" == "cygwin" ]]; then
 fi
 
 # Local exports
-if [ -f ~/.exports-local ]; then
-  source ~/.exports-local 2> /dev/null
+if [ -f $HOME/.exports-local ]; then
+  source $HOME/.exports-local 2> /dev/null
 fi
