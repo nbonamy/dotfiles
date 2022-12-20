@@ -1,6 +1,0 @@
-
-export test_drop2_int_us_config_url_api=https://na-uat.api.mcd.com/exp/v2/core/configuration/int4_us
-export test_drop2_int_us_api_clientid=508747ceaec649079c0022b6c8d8052e
-export test_drop2_int_us_api_clientsecret=A7a0eAc903BF479A927e1A1061c89356
-export test_drop2_int_us_authtoken_url_api=https://na-uat.api.mcd.com/v1/security/auth/token
-

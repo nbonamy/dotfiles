@@ -25,9 +25,9 @@ fi
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
 # MacOS specific settings
-#if [[ "$SYSTEM" == "MacOS" ]]; then
+if [[ "$SYSTEM" == "MacOS" ]]; then
   source $HOME/dotfiles/.bash_profile-macos
-#fi
+fi
 
 # Local settings 
 if [ -f $HOME/dotfiles/.bash_profile-local ]; then
