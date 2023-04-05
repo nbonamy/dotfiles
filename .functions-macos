@@ -1,25 +1,26 @@
 #!/bin/bash
 
 # start/stop http stack
-web() {
-  if [[ -n "$1" ]]; then
-    #phpver="`php -r \"echo str_replace('.', '', substr(phpversion(), 0, 3));\"`"
-    if [[ $1 == 'restart' ]]; then
-      web stop
-      web start
-    elif [[ $1 == 'start' ]]; then
-      sudo brew services start redis
-      sudo brew services start exolnet/deprecated/php@7.0
-      sudo brew services start mysql
-      sudo brew services start nginx
-    else
-      sudo brew services stop nginx
-      sudo brew services stop mysql
-      sudo brew services stop exolnet/deprecated/php@7.0
-      sudo brew services stop redis
-    fi
+ngdev() {
+  #phpver="`php -r \"echo str_replace('.', '', substr(phpversion(), 0, 3));\"`"
+  if [[ $1 == 'restart' ]]; then
+    ngdev stop
+    ngdev start
+  elif [[ $1 == 'start' ]]; then
+    #brew services run redis
+    #brew services run exolnet/deprecated/php@7.0
+    #brew services run mysql
+    brew services run nginx
+  elif [[ $1 == 'stop' ]]; then
+    brew services stop nginx
+    #brew services stop mysql
+    #brew services stop exolnet/deprecated/php@7.0
+    #brew services stop redis
   else
-    echo "usage: $FUNCNAME <start|stop|restart>"
+		brew services info nginx
+		echo ""
+		echo "'ngdev start' to run without registering"
+		echo "'ngdev stop' to stop"
   fi
 }
 
@@ -33,6 +34,7 @@ check-port() {
   sudo lsof -nP -iTCP:$1 -sTCP:LISTEN
 }
 
+# PDF
 joinpdf() {
 	output=$1
 	input=${@:2}
@@ -45,3 +47,19 @@ joinpdf() {
 	/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py -o "$output" $input
 }
 
+# PPT
+unppt() {
+  if [[ ! -z "$1" ]]; then
+    cp "$1" "$1.$(date "+%Y%m%d%H%M").bak"
+    rm -rf ./pptxtmp
+    unzip -q -d ./pptxtmp "$1"
+    code ./pptxtmp
+  fi
+}
+reppt() {
+  if [[ ! -z "$1" ]]; then
+    cd ./pptxtmp
+    zip -f -r ../"$1" *
+    cd ..
+  fi
+}

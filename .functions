@@ -58,9 +58,9 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 fi
 
 # Mac specific
-#if [[ "$SYSTEM" == "MacOS" ]]; then
-#  source $HOME/dotfiles/.functions-macos 2> /dev/null
-#fi
+if [[ "$SYSTEM" == "MacOS" ]]; then
+  source $HOME/dotfiles/.functions-macos 2> /dev/null
+fi
 
 # Cygwin specific
 if [[ "$SYSTEM" == "cygwin" ]]; then
