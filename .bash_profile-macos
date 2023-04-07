@@ -4,7 +4,7 @@
 complete -W "NSGlobalDomain" defaults
 
 # node.js
-export NODE_PATH="/usr/local/lib/node_modules"
+export NODE_PATH="$(brew --prefix)/lib/node_modules"
 
 # bash completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then

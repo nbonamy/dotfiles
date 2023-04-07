@@ -17,7 +17,7 @@ done < colors
 if dircolors > /dev/null 2>&1; then
   dircolor=dircolors
 else # OS X
-  dircolor=/usr/local/opt/coreutils/libexec/gnubin/dircolors
+  dircolor=$(brew --prefix)/opt/coreutils/libexec/gnubin/dircolors
 fi
 
 # final export
