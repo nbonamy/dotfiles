@@ -42,7 +42,8 @@ alias zap="rm -rf"
 alias composer="php composer.phar"
 
 # python stuff
-alias pip="pip2"
+alias python="python3"
+alias pip="pip3"
 
 # docker
 alias dockerrmconts='docker rm -f $(docker ps --filter "status=exited" -q)'
