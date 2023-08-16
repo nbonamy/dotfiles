@@ -85,3 +85,13 @@ git clone https://github.com/nbonamy/dotfiles.git && cd dotfiles && ./sync.sh
 ```
 
 To update later on, just run the sync again.
+
+## Others
+
+### Dock
+
+```
+defaults write com.apple.dock tilesize -int 80
+defaults write com.apple.dock size-immutable -bool yes
+killall Dock
+```

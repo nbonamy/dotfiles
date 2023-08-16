@@ -2,7 +2,7 @@
 
 # color ls
 if [ -e "$(brew --prefix)/opt/coreutils/libexec/gnubin/ls" ]; then
-	alias ls="$(brew --prefix)/opt/coreutils/libexec/gnubin/ls"
+	alias ls="$(brew --prefix)/opt/coreutils/libexec/gnubin/ls --color"
 else
 	alias ls="command ls -G"
 fi
