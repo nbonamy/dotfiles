@@ -9,12 +9,12 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+#defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Automatically illuminate built-in MacBook keyboard in low light
-defaults write com.apple.BezelServices kDim -bool true
+#defaults write com.apple.BezelServices kDim -bool true
 # Turn off keyboard illumination when computer is not used for 5 minutes
-defaults write com.apple.BezelServices kDimTime -int 300
+#defaults write com.apple.BezelServices kDimTime -int 300
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
