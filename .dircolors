@@ -103,6 +103,8 @@ EXEC {exec}
 .less {code}
 .lua {code}
 .m {code}
+.mjs {code}
+.mts {code}
 .php {code}
 .pl {code}
 .ps1 {code}

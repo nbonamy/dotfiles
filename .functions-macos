@@ -16,6 +16,9 @@ ngdev() {
     #brew services stop mysql
     #brew services stop exolnet/deprecated/php@7.0
     #brew services stop redis
+	elif [[ $1 == 'edit' ]]; then
+		sudo vi ${HOMEBREW_PREFIX}/etc/nginx/servers/mediastation.dev
+		ngdev restart
   else
 		brew services info nginx
 		echo ""
