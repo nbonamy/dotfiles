@@ -5,7 +5,7 @@
 
 # our own colors
 file 38;5;248         # all files
-dir 01;38;5;33        # directories
+dir 01;38;5;39        # directories
 link 01;36            # links: use target to color same as target
 exec 38;5;196         # executables
 code 38;5;82          # source code
