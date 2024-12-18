@@ -14,7 +14,10 @@ fi
 # Docker
 #eval "$(docker-machine env default)"
 
+# no brew auto update
+HOMEBREW_NO_AUTO_UPDATE=1
+
 # path stuff
 export PATH="$PATH:$HOME/.fastlane/bin"
 export PATH="$PATH:$HOME/go/bin"
-#export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

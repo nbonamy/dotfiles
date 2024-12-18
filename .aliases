@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # easier navigation
-alias cd..="cd .."
-alias -- -="cd -"
+alias cdd="cd --"
 
 # command shortcuts
 alias x="exit"

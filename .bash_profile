@@ -24,6 +24,11 @@ fi
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
+# seedee
+if [ -e "$HOME/bin/seedee" ]; then
+  source "$HOME/bin/seedee"
+fi
+
 # MacOS specific settings
 if [[ "$SYSTEM" == "MacOS" ]]; then
   source $HOME/dotfiles/.bash_profile-macos
