@@ -1,0 +1,16 @@
+
+#theme = Github
+confirm-close-surface = false
+background = #182838
+#background = F8F8F8
+font-family = Fira Code Retina
+font-size = 15
+font-thicken = false
+background-opacity = 1
+quit-after-last-window-closed = true
+cursor-click-to-move = true
+
+keybind = cmd+right=text:\x05
+keybind = cmd+left=text:\x01
+keybind = alt+left=esc:b
+keybind = alt+right=esc:f

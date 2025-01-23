@@ -7,3 +7,8 @@ do
 	fi
 	ln -sf ~/dotfiles/$i ~
 done
+
+echo Installing config files
+mkdir -p ~/.config
+mkdir -p ~/.config/ghostty
+ln -sf ~/dotfiles/ghostty-config ~/.config/ghostty/config
