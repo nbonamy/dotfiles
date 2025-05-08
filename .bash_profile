@@ -35,9 +35,6 @@ if [[ "$SYSTEM" == "MacOS" ]]; then
 fi
 
 # Local settings 
-if [ -f $HOME/dotfiles/.bash_profile-local ]; then
-  source $HOME/dotfiles/.bash_profile-local 2> /dev/null
+if [ -f $HOME/.bash_profile-local ]; then
+  source $HOME/.bash_profile-local 2> /dev/null
 fi
-
-# for pipx
-export PATH="$PATH:/Users/nbonamy/.local/bin"

@@ -75,7 +75,7 @@ if [[ "$SYSTEM" == "cygwin" ]]; then
 fi
 
 # Local function
-if [ -f ~/.functions-local ]; then
-  source ~/.functions-local 2> /dev/null
+if [ -f $HOME/.functions-local ]; then
+  source $HOME/.functions-local 2> /dev/null
 fi
 
