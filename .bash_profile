@@ -36,5 +36,5 @@ fi
 
 # Local settings 
 if [ -f $HOME/.bash_profile-local ]; then
-  source $HOME/.bash_profile-local 2> /dev/null
+  source $HOME/.bash_profile-local
 fi

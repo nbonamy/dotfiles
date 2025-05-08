@@ -52,5 +52,5 @@ fi
 
 # Local exports
 if [ -f $HOME/.exports-local ]; then
-  source $HOME/.exports-local 2> /dev/null
+  source $HOME/.exports-local
 fi
