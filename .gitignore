@@ -18,3 +18,12 @@ Thumbs.db
 .vim/swaps
 .vim/undo
 .vim/.netrwhist
+
+# claude stuff
+.claude/todos
+.claude/projects
+.claude/plugins
+.claude/statsig
+.claude/file-history
+.claude/shell-snapshots
+.claude/history.jsonl
