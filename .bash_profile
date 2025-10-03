@@ -38,3 +38,7 @@ fi
 if [ -f $HOME/.bash_profile-local ]; then
   source $HOME/.bash_profile-local
 fi
+
+if [ -f $HOME/.local/bin/env ]; then
+  source "$HOME/.local/bin/env"
+fi

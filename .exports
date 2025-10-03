@@ -32,7 +32,7 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 # Try to guess system
-[[ $(type -P lsb_release) ]] && export SYSTEM=$(lsb_release -a 2> /dev/null | grep "ID:" | cut -f 2- -d ":" | sed -e 's/[ \t]*//g')
+#[[ $(type -P lsb_release) ]] && export SYSTEM=$(lsb_release -a 2> /dev/null | grep "ID:" | cut -f 2- -d ":" | sed -e 's/[ \t]*//g')
 if [[ "$OSTYPE" =~ ^darwin ]]; then
   export SYSTEM=MacOS
 fi

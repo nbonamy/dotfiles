@@ -21,3 +21,8 @@ HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="$PATH:$HOME/.fastlane/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/nbonamy/.lmstudio/bin"
+# End of LM Studio CLI section
+
