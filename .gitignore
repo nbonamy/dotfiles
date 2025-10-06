@@ -20,6 +20,7 @@ Thumbs.db
 .vim/.netrwhist
 
 # claude stuff
+.claude/ide
 .claude/todos
 .claude/projects
 .claude/plugins
