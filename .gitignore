@@ -21,6 +21,7 @@ Thumbs.db
 
 # claude stuff
 .claude/ide
+.claude/debug
 .claude/todos
 .claude/projects
 .claude/plugins
