@@ -16,7 +16,7 @@ HISTTIMEFORMAT='%F %T '
 export HISTTIMEFORMAT
 
 # Make some commands not show up in history
-#export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+export HISTIGNORE="ls:pwd:cdd *:h:exit:*/Applications/Visual Studio Code.app/Contents/*"
 
 # Show useful stuff in term title
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
