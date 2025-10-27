@@ -26,6 +26,13 @@ fi
 
 # seedee
 if [ -e "$HOME/bin/seedee" ]; then
+  # Limit seedee history file size to prevent performance issues
+  if [ -f "$HOME/.cd_history" ]; then
+    line_count=$(wc -l < "$HOME/.cd_history")
+    if [ "$line_count" -gt 5000 ]; then
+      tail -5000 "$HOME/.cd_history" > "$HOME/.cd_history.tmp" && mv "$HOME/.cd_history.tmp" "$HOME/.cd_history"
+    fi
+  fi
   source "$HOME/bin/seedee"
 fi
 
