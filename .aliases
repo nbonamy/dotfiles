@@ -54,6 +54,10 @@ alias gst='git status'
 alias gpa='git pull --all'
 alias gadd='git add .'
 
+# project
+alias lw='npm run lint:watch'
+alias tw='npm run test:watch'
+
 # Linux specific
 if [[ "$(uname -s)" == "Linux" ]]; then
   source $HOME/dotfiles/.aliases-linux
