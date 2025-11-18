@@ -1,4 +1,25 @@
 {
   "hooks": {},
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": false,
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Read(~/**)",
+      "WebFetch",
+      "Bash(npm run:*)",
+      "Bash(git diff:*)",
+      "Bash(git add:*)",
+      "Bash(curl:*)"
+    ],
+    "ask": [
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(git merge:*)"
+    ],
+    "additionalDirectories": [
+      "~/src/witsy",
+      "~/src/multi-llm-ts"
+    ]
+  }
 }
