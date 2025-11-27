@@ -1,9 +1,6 @@
 {
-  "hooks": {},
-  "alwaysThinkingEnabled": false,
   "includeCoAuthoredBy": false,
   "permissions": {
-    "defaultMode": "acceptEdits",
     "allow": [
       "Read(~/**)",
       "WebFetch",
@@ -17,9 +14,17 @@
       "Bash(git push:*)",
       "Bash(git merge:*)"
     ],
+    "defaultMode": "acceptEdits",
     "additionalDirectories": [
       "~/src/witsy",
-      "~/src/multi-llm-ts"
+      "~/src/multi-llm-ts",
+      "~/src/station1-playbook",
+      "~/src/station1-desktop",
+      "~/src/station1-server",
+      "~/src/ko-db-migrations",
+      "~/src/ko-k8s-apps"
     ]
-  }
+  },
+  "hooks": {},
+  "alwaysThinkingEnabled": true
 }

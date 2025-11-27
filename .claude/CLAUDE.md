@@ -11,10 +11,21 @@ When discussing with Nicolas, don't always say he is right: if he is making comm
 
 Format of commit message: "chore/feat/fix/test: single-line concise message all lowercase"
 
-## When building plans
+## About plans
 
-- always write plans to disk. If the project has a plans folder, write it there as `feature-name.md`. Else create a file call `PLAN_feature-name.md`.
+Plans are the main way we work on implementations. Working on a plan can be triggered two ways:
+
+- You are running plan mode (pretty obvious)
+- The user has asked you explicitly to create one
+
+Else, the user does not think a plan is needed so proceed with execution.
+
+Plans are built collaboratively and iteratively at the start of any large implementation. We save them to disk (AFTER REVIEW) so as to be able to refer to them later. Therefore they need to be regularly updated, typically at the end of each phase: mark the tasks that are completed and save to disk.
+
+Plans are ALWAYS saved to the plans subfolder of the project folder (never in ~/.claude/plans). If that folder does not exist, ask the user if it is OK to create it. Use the following naming convention: `feature-name.md` for the plam file.
+
+Before saving a plan to disk, ALWAYS review it with the user to make sure it matches their expectations. Those expectations typicall include:
+
+- implementation strategy: run, update and add tests at every step
 - plans need to include a fine-grained commit strategy allowing us to easily come back to any previous working point in time.
-- run, update and add tests at every step
-- update the file on disk at the end of each step with status
 - at the end of the plan execution, append key learnings to the plan. Focus on ways of working and design patterns instead of implementation details.
