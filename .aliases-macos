@@ -20,4 +20,4 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 alias simulator="open -a simulator"
 
 # custom scripts
-alias ltwatch="osascript ~/dotfiles/scripts/ltwatch.scpt"
+alias ltwatch="pwd | shortcuts run 'Two-Pane Dev Watch'"

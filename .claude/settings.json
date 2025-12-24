@@ -4,6 +4,7 @@
     "allow": [
       "Read(~/**)",
       "WebFetch",
+      "WebSearch",
       "Bash(npm run:*)",
       "Bash(git diff:*)",
       "Bash(git add:*)",
@@ -26,5 +27,12 @@
     ]
   },
   "hooks": {},
-  "alwaysThinkingEnabled": true
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "crew@nbonamy": true
+  }
 }
