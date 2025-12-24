@@ -11,10 +11,6 @@
       "Bash(git commit:*)",
       "Bash(curl:*)"
     ],
-    "ask": [
-      "Bash(git push:*)",
-      "Bash(git merge:*)"
-    ],
     "defaultMode": "acceptEdits",
     "additionalDirectories": [
       "~/src/witsy",
