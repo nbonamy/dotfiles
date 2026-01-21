@@ -34,7 +34,48 @@ livesync() {
 
 # Check port usage
 check-port() {
-  sudo lsof -nP -iTCP:$1 -sTCP:LISTEN
+  if [[ -z "$1" ]]; then
+    echo "Usage: check-port <port>"
+    return 1
+  fi
+  pid=$(sudo lsof -t -iTCP:$1 -sTCP:LISTEN 2>/dev/null | head -1)
+  if [[ -z "$pid" ]]; then
+    echo "No process listening on port $1"
+    return 1
+  fi
+  cwd=$(sudo lsof -a -p $pid -d cwd -F n 2>/dev/null | tail -1 | cut -c2-)
+  cmd=$(ps -o args= -p $pid)
+  echo "PID: $pid"
+  echo "DIR: $cwd"
+  echo "CMD: $cmd"
+}
+
+# Kill process on a given port
+kill-port() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: kill-port <port>"
+    return 1
+  fi
+  pid=$(sudo lsof -t -iTCP:$1 -sTCP:LISTEN)
+  if [[ -z "$pid" ]]; then
+    echo "No process listening on port $1"
+    return 1
+  fi
+  echo "Killing PID $pid on port $1"
+  sudo kill -9 $pid
+}
+
+# Find which port(s) a process is listening on
+port-of() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: port-of <process-name>"
+    return 1
+  fi
+  sudo lsof -nP -iTCP -sTCP:LISTEN | tail -n +2 | grep -i "$1" | awk '{gsub(/.*:/, "", $9); print $2, $9}' | while read pid port; do
+    cwd=$(sudo lsof -a -p $pid -d cwd -F n 2>/dev/null | tail -1 | cut -c2-)
+    cmd=$(ps -o comm= -p $pid)
+    printf "%-6s %-40s %s\n" "$port" "$cwd" "$cmd"
+  done
 }
 
 # PDF
