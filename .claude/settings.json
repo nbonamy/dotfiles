@@ -2,14 +2,42 @@
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
-      "Read(~/**)",
+      "Read(**)",
       "WebFetch",
       "WebSearch",
       "Bash(npm run:*)",
+      "Bash(npm search:*)",
+      "Bash(npm show:*)",
+      "Bash(npm test:*)",
+      "Bash(npm install:*)",
+      "Bash(npm i:*)",
+      "Bash(npm install:*)",
+      "Bash(npm ci:*)",
+      "Bash(npm info:*)",
+      "Bash(npx vitest:*)",
+      "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git add:*)",
+      "Bash(git mv:*)",
       "Bash(git commit:*)",
-      "Bash(curl:*)"
+      "Bash(git branch:*)",
+      "Bash(git worktree:*)",
+      "Bash(git checkout:*)",
+      "Bash(git log:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git bisect:*)",
+      "Bash(git -C:*)",
+      "Bash(gh:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(curl:*)",
+      "Bash(echo:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(mkdir:*)",
+      "Bash(make:*)",
+      "mcp__mcplex__*"
     ],
     "defaultMode": "acceptEdits",
     "additionalDirectories": [
@@ -18,10 +46,15 @@
       "~/src/station1-playbook",
       "~/src/station1-desktop",
       "~/src/station1-server",
+      "~/src/station1-project-server",
+      "~/src/station1-llm-server",
+      "~/src/station1-rrago",
+      "~/src/station1-analytics",
       "~/src/ko-db-migrations",
       "~/src/ko-k8s-apps"
     ]
   },
+  "model": "opus",
   "hooks": {},
   "statusLine": {
     "type": "command",
@@ -29,6 +62,8 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "crew@nbonamy": true
-  }
+    "gopls-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true
 }

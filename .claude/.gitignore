@@ -3,4 +3,5 @@ plans
 kochava.json
 stats-cache.json
 paste-cache
+telemetry
 chrome/chrome-native-host
