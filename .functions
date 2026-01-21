@@ -74,6 +74,83 @@ if [[ "$SYSTEM" == "cygwin" ]]; then
   source $HOME/dotfiles/.functions-cygwin 2> /dev/null
 fi
 
+# Worktree switcher - uses fzf for interactive selection
+# Auto-discovers repos in ~/src (excludes worktree directories)
+function cwt() {
+  local app=$1
+  local src_dir="$HOME/src"
+  local base_repo
+  local app_name
+
+  # Find all main repos (not worktree dirs - those have .git as a file)
+  _cwt_find_repos() {
+    for dir in "$src_dir"/*/; do
+      if [ -d "$dir/.git" ]; then
+        basename "$dir"
+      fi
+    done | sort
+  }
+
+  # Shortcuts
+  [ "$app" = "server" ] && app="station1-server"
+
+  # Exact match takes priority (e.g. "witsy" -> "witsy", not "witsy-*")
+  if [ -n "$app" ] && [ -d "$src_dir/$app/.git" ]; then
+    base_repo="$src_dir/$app"
+    app_name="$app"
+  elif [ -z "$app" ]; then
+    # No app specified - show list of all repos
+    local repos=$(_cwt_find_repos)
+    if [ -z "$repos" ]; then
+      echo "No repos found in $src_dir"
+      return 1
+    fi
+    local selected_repo=$(echo "$repos" | fzf --height 40% --reverse --border \
+        --prompt="Select repo > " \
+        --header="Repos (ESC to cancel)")
+    [ -z "$selected_repo" ] && return 0
+    base_repo="$src_dir/$selected_repo"
+    app_name="$selected_repo"
+  else
+    # App specified - find matching repo (fuzzy match)
+    local matches=$(_cwt_find_repos | grep -i "$app")
+    local count=$(echo "$matches" | grep -c . 2>/dev/null || echo 0)
+
+    if [ -z "$matches" ] || [ "$count" -eq 0 ]; then
+      echo "No repo matching '$app' found"
+      return 1
+    elif [ "$count" -eq 1 ]; then
+      base_repo="$src_dir/$matches"
+      app_name="$matches"
+    else
+      # Multiple matches - let user pick
+      local selected_repo=$(echo "$matches" | fzf --height 40% --reverse --border \
+          --prompt="Multiple matches for '$app' > " \
+          --header="Select repo (ESC to cancel)")
+      [ -z "$selected_repo" ] && return 0
+      base_repo="$src_dir/$selected_repo"
+      app_name="$selected_repo"
+    fi
+  fi
+
+  # Check if repo has worktrees
+  local wt_count=$(cd "$base_repo" && git worktree list 2>/dev/null | wc -l | tr -d ' ')
+
+  if [ "$wt_count" -gt 1 ]; then
+    # Multiple worktrees - let user select
+    local selected=$(cd "$base_repo" && git worktree list | \
+      fzf --height 40% --reverse --border \
+          --prompt="$app_name > " \
+          --header="Select worktree (ESC to cancel)" \
+          --preview="cd {1} && git log --oneline -5" \
+          --preview-window=right:40% | awk '{print $1}')
+    [ -n "$selected" ] && cd "$selected"
+  else
+    # No worktrees - just cd to the repo
+    cd "$base_repo"
+  fi
+}
+
 # Local function
 if [ -f $HOME/.functions-local ]; then
   source $HOME/.functions-local 2> /dev/null
