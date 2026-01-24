@@ -7,8 +7,8 @@ quit-after-last-window-closed = true
 
 # darkest to brightest
 #background = #0d2137
-background = #0a2840
-#background = #0b2c44
+#background = #0a2840
+background = #0b2c44
 
 #theme = Aardvark Blue
 #theme = Blazer
