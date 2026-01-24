@@ -62,8 +62,9 @@
     "padding": 0
   },
   "enabledPlugins": {
+    "crew@nbonamy": true,
     "gopls-lsp@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": false
 }
