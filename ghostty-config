@@ -1,17 +1,37 @@
 
-#theme = Github
 confirm-close-surface = false
-background = #182838
-#background = F8F8F8
+quit-after-last-window-closed = true
+
+# old background
+#background = #182838
+
+# darkest to brightest
+#background = #0d2137
+#background = #0a2840
+background = #0b2c44
+
+#theme = Aardvark Blue
+#theme = Blazer
+#theme = Cobalt2
+#theme = Night Owl
+#theme = Pandora
+ 
 font-family = Fira Code Retina
 font-size = 15
-font-thicken = false
+font-thicken = true
+
 background-opacity = 1
-quit-after-last-window-closed = true
+
 cursor-click-to-move = true
+
+clipboard-read = allow
+clipboard-write = allow
+macos-auto-secure-input = false
 
 keybind = cmd+right=text:\x05
 keybind = cmd+left=text:\x01
 keybind = alt+left=esc:b
 keybind = alt+right=esc:f
 keybind = shift+enter=text:\n
+
+auto-update = download
