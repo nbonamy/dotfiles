@@ -57,6 +57,7 @@ alias gadd='git add .'
 # project
 alias lw='npm run lint:watch'
 alias tw='npm run test:watch'
+alias mwa='make watch-all'
 
 # Linux specific
 if [[ "$(uname -s)" == "Linux" ]]; then
