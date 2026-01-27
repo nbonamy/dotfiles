@@ -4,4 +4,6 @@ kochava.json
 stats-cache.json
 paste-cache
 telemetry
+tasks
 chrome/chrome-native-host
+.credentials.json
