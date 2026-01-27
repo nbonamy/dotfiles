@@ -18,7 +18,7 @@ background = #0b2c44
  
 font-family = Fira Code Retina
 font-size = 15
-font-thicken = true
+#font-thicken = true
 
 background-opacity = 1
 
