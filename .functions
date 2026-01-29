@@ -99,18 +99,30 @@ function cwt() {
     base_repo="$src_dir/$app"
     app_name="$app"
   elif [ -z "$app" ]; then
-    # No app specified - show list of all repos
-    local repos=$(_cwt_find_repos)
-    if [ -z "$repos" ]; then
-      echo "No repos found in $src_dir"
-      return 1
+    # No app specified - try to detect from current worktree
+    if [ -f .git ]; then
+      # We're in a worktree - find the main repo
+      local main_wt=$(git worktree list 2>/dev/null | head -1 | awk '{print $1}')
+      if [ -n "$main_wt" ] && [ -d "$main_wt/.git" ]; then
+        base_repo="$main_wt"
+        app_name=$(basename "$main_wt")
+      fi
     fi
-    local selected_repo=$(echo "$repos" | fzf --height 40% --reverse --border \
-        --prompt="Select repo > " \
-        --header="Repos (ESC to cancel)")
-    [ -z "$selected_repo" ] && return 0
-    base_repo="$src_dir/$selected_repo"
-    app_name="$selected_repo"
+
+    # If not in a worktree, show list of all repos
+    if [ -z "$base_repo" ]; then
+      local repos=$(_cwt_find_repos)
+      if [ -z "$repos" ]; then
+        echo "No repos found in $src_dir"
+        return 1
+      fi
+      local selected_repo=$(echo "$repos" | fzf --height 40% --reverse --border \
+          --prompt="Select repo > " \
+          --header="Repos (ESC to cancel)")
+      [ -z "$selected_repo" ] && return 0
+      base_repo="$src_dir/$selected_repo"
+      app_name="$selected_repo"
+    fi
   else
     # App specified - find matching repo (fuzzy match)
     local matches=$(_cwt_find_repos | grep -i "$app")
