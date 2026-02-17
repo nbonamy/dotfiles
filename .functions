@@ -99,14 +99,11 @@ function cwt() {
     base_repo="$src_dir/$app"
     app_name="$app"
   elif [ -z "$app" ]; then
-    # No app specified - try to detect from current worktree
-    if [ -f .git ]; then
-      # We're in a worktree - find the main repo
-      local main_wt=$(git worktree list 2>/dev/null | head -1 | awk '{print $1}')
-      if [ -n "$main_wt" ] && [ -d "$main_wt/.git" ]; then
-        base_repo="$main_wt"
-        app_name=$(basename "$main_wt")
-      fi
+    # No app specified - try to detect from current directory
+    local main_wt=$(git worktree list 2>/dev/null | head -1 | awk '{print $1}')
+    if [ -n "$main_wt" ] && [ -d "$main_wt/.git" ]; then
+      base_repo="$main_wt"
+      app_name=$(basename "$main_wt")
     fi
 
     # If not in a worktree, show list of all repos
