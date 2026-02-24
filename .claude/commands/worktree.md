@@ -18,3 +18,7 @@ If not, create a new plan as outlined in general instructions (~/.claude/CLAUDE.
 
 You will work in small increments commiting frequently.
 You will NOT automatically merge the worktree back at the end: you need to wait for final user approval.
+
+NEVER create a worktree in .claude folder
+Worktrees are always created alongside original repo appending the name of the worktree.
+Example: feat-multitasking worktree of ~/src/witsy -> ~/src/witsy-multitasking
