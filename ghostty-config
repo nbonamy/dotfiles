@@ -16,7 +16,7 @@ background = #0b2c44
 #theme = Night Owl
 #theme = Pandora
  
-font-family = Fira Code Retina
+font-family = JetBrains Mono Medium
 font-size = 15
 #font-thicken = true
 
