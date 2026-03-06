@@ -28,4 +28,5 @@ Thumbs.db
 .claude/statsig
 .claude/file-history
 .claude/shell-snapshots
+.claude/usage-data
 .claude/history.jsonl
