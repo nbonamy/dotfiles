@@ -150,9 +150,7 @@ function cwt() {
     local selected=$(cd "$base_repo" && git worktree list | \
       fzf --height 40% --reverse --border \
           --prompt="$app_name > " \
-          --header="Select worktree (ESC to cancel)" \
-          --preview="cd {1} && git log --oneline -5" \
-          --preview-window=right:40% | awk '{print $1}')
+          --header="Select worktree (ESC to cancel)" | awk '{print $1}')
     [ -n "$selected" ] && cd "$selected"
   else
     # No worktrees - just cd to the repo
