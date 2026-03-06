@@ -9,6 +9,8 @@ You will find the work to review by looking at (whichever is not empty 1st)
 - `git diff --staged`: changes to local files already staged
 - changes made since the creation of the worktree
 
+The work was about: $ARGUMENTS
+
 ## Expectations
 
 Check what we changed and conduct a full review:
