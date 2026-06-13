@@ -53,10 +53,12 @@
       "~/src/station1-rrago",
       "~/src/station1-analytics",
       "~/src/ko-db-migrations",
-      "~/src/ko-k8s-apps"
+      "~/src/ko-k8s-apps",
+      "~/Downloads",
+      "/tmp"
     ]
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "hooks": {},
   "statusLine": {
     "type": "command",
