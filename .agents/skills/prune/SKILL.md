@@ -1,3 +1,8 @@
+---
+name: prune
+description: Use when the user wants to clean up already-merged git branches and worktrees with strict safety checks before deleting anything.
+---
+
 Clean up already-merged branches and worktrees in the current git repository.
 
 ## Safety rule

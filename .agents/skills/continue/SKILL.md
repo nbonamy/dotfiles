@@ -1,3 +1,7 @@
+---
+name: continue
+description: Use when the user wants autonomous plan execution to continue without repeated confirmations until the work, linting, and testing are complete.
+---
 
 # Move on with plan execution
 

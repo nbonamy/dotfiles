@@ -1,3 +1,7 @@
+---
+name: plan
+description: Use when the user explicitly asks to create a detailed implementation plan for a task before starting work.
+---
 
 # Let's create a plan for our task
 

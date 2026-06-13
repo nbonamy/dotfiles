@@ -1,3 +1,7 @@
+---
+name: design
+description: Use when the user wants a design phase for a task, including codebase analysis and an implementation approach for review before coding starts.
+---
 
 # Design phase
 

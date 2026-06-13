@@ -1,3 +1,7 @@
+---
+name: hold
+description: Use when the user wants the implementation completed fully but does not want any changes committed until explicit review and approval.
+---
 
 # Custom command
 

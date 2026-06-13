@@ -1,3 +1,7 @@
+---
+name: mwa
+description: Use when the user wants to create a companion shell agent that runs make watch-all for continuous lint and test feedback.
+---
 
 # Watch all
 

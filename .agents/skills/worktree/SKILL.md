@@ -1,3 +1,7 @@
+---
+name: worktree
+description: Use when the user wants to isolate a task in a dedicated git worktree, install dependencies, copy environment files, plan the work, and commit incrementally.
+---
 
 # Isolating work in worktrees
 

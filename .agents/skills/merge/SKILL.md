@@ -1,3 +1,7 @@
+---
+name: merge
+description: Use when the user wants to merge a dedicated git worktree back into its original branch, including latest-base checks and squash-message handling.
+---
 
 # Merging a worktree
 

@@ -1,3 +1,7 @@
+---
+name: clean
+description: Use when the user wants to delete a completed git worktree and its local or remote branch after confirming the work has been merged.
+---
 
 # Cleaning our worktree
 

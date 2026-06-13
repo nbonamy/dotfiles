@@ -1,3 +1,7 @@
+---
+name: fix
+description: Use when the user wants all failing tests fixed, with failures classified as changed-test expectations or implementation regressions before making fixes.
+---
 
 # Fix ALL the tests
 
@@ -12,4 +16,3 @@ When failures are detected you should decide if the test is broken because of:
 In doubt, always clarify with the user.
 
 NEVER update implementation without confirming with the user first.
-

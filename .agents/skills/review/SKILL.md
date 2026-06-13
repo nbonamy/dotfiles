@@ -1,3 +1,7 @@
+---
+name: review
+description: Use when the user asks for a code review of local, staged, or worktree changes, prioritizing duplication, refactoring opportunities, tests, and risks.
+---
 
 # Review time
 
@@ -18,4 +22,3 @@ Check what we changed and conduct a full review:
 - Identify duplicated code and refactoring opportunities.
 - Ensure we have added proper tests for new features.
 - Ensure we have updated tests for feature modifications.
-
