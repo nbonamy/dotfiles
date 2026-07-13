@@ -2,6 +2,12 @@
 confirm-close-surface = false
 quit-after-last-window-closed = true
 
+# Start every new terminal in $HOME instead of inheriting another terminal's path.
+working-directory = home
+window-inherit-working-directory = false
+tab-inherit-working-directory = false
+split-inherit-working-directory = false
+
 # old background
 #background = #182838
 
