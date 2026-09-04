@@ -49,3 +49,7 @@ fi
 if [ -f $HOME/.local/bin/env ]; then
   source "$HOME/.local/bin/env"
 fi
+
+# >>> Codex installer >>>
+export PATH="/Users/nbonamy/.local/bin:$PATH"
+# <<< Codex installer <<<

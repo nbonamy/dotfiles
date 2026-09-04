@@ -58,7 +58,7 @@
       "/tmp"
     ]
   },
-  "model": "opus[1m]",
+  "model": "haiku",
   "hooks": {},
   "statusLine": {
     "type": "command",
@@ -70,5 +70,6 @@
     "clangd-lsp@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": false,
+  "effortLevel": "xhigh"
 }

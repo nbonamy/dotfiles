@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lossless Code Moves"
+  short_description: "Relocate code without regenerating unchanged text"
+  default_prompt: "Use $lossless-code-moves to relocate this code while preserving unchanged content exactly."
