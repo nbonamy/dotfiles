@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commit Push (cp)"
+  short_description: "Safely commit and push scoped repo changes."
+  default_prompt: "Use $cp to commit and push the completed change."
