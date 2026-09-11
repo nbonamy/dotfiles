@@ -30,3 +30,6 @@ Thumbs.db
 .claude/shell-snapshots
 .claude/usage-data
 .claude/history.jsonl
+
+# Local publishing guardrails
+/AGENTS.md
