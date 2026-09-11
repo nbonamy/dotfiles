@@ -78,7 +78,7 @@ fi
 # Auto-discovers repos in ~/src (excludes worktree directories)
 function cwt() {
   local app=$1
-  local src_dir="$HOME/src"
+  local src_dir="$HOME/code"
   local base_repo
   local app_name
 
