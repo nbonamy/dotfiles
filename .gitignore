@@ -34,7 +34,6 @@ Thumbs.db
 # Private shell overrides
 /.extra
 /.exports-local
-/.zshrc.local
 /.zshrc-local
 
 # Local publishing guardrails
