@@ -31,5 +31,11 @@ Thumbs.db
 .claude/usage-data
 .claude/history.jsonl
 
+# Private shell overrides
+/.extra
+/.exports-local
+/.zshrc.local
+/.zshrc-local
+
 # Local publishing guardrails
 /AGENTS.md

@@ -44,3 +44,8 @@ unset prompt_usernamehost default_username1 default_username2
 if [ -f "$HOME/.zshrc-local" ]; then
   source "$HOME/.zshrc-local"
 fi
+
+# Machine-specific setup stays in an untracked local file.
+if [ -r "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi

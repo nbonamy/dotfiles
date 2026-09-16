@@ -26,6 +26,18 @@ PATH=$PATH:~/code/git-friendly
 export PATH
 ```
 
+Zsh also loads `~/.zshrc.local` at the end of startup for machine-specific setup.
+The older `~/.zshrc-local` hook still works and runs just before it. These files
+and `.extra` are ignored by Git; keep their contents local to each machine.
+
+The `cwt` worktree switcher looks for repositories in `~/src` by default.
+To use a different directory on a particular machine, add this to
+`~/.exports-local`, which is ignored by Git and loaded by both Bash and Zsh:
+
+```sh
+export SRCDIR="$HOME/code"
+```
+
 ## Syntax highlighting
 
 …is really important. even for these files.
